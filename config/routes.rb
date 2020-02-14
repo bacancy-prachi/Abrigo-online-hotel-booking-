@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :bookings
   resources :rooms
   resources :categories
-  resources :roles
   resources :hotels
   resources :locations
   root to: 'users#home'
