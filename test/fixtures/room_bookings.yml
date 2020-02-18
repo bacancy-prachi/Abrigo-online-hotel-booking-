@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  check_in: 2020-02-16 19:56:54
+  check_out: 2020-02-16 19:56:54
+  booking: one
+  room: one
+
+two:
+  check_in: 2020-02-16 19:56:54
+  check_out: 2020-02-16 19:56:54
+  booking: two
+  room: two

@@ -1,0 +1,21 @@
+<h1>search Result</h1>
+<p><%= link_to 'back', new_filter_path %></p>
+
+<% if @filter.filter_hotels.empty? %>
+
+<p> no records found </p>
+
+<% else %>
+
+<% @filter.filter_hotels.each do |f| %>
+<br>
+
+<div class="div">
+
+<h1><%= f.name %></h1>
+<p>price: $<%= f.price %></p>
+<p>category: $<%= f.name %></p>
+
+<% end %>
+
+<% end %>

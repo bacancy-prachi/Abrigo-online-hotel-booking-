@@ -1,3 +1,15 @@
+GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: aee2d97dd4c66d344030f4d41b207015f8c68fd3
+  specs:
+    polyamorous (2.3.2)
+      activerecord (>= 5.2.1)
+    ransack (2.3.2)
+      activerecord (>= 5.2.1)
+      activesupport (>= 5.2.1)
+      i18n
+      polyamorous (= 2.3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -88,6 +100,7 @@ GEM
     ffi (1.12.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    hirb (0.7.3)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.4)
@@ -236,11 +249,13 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  hirb
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   pg
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
+  ransack!
   rolify
   rubocop
   sass-rails (>= 6)

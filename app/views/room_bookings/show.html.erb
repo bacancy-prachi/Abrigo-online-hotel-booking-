@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Check in:</strong>
+  <%= @room_booking.check_in %>
+</p>
+
+<p>
+  <strong>Check out:</strong>
+  <%= @room_booking.check_out %>
+</p>
+
+<p>
+  <strong>Booking:</strong>
+  <%= @room_booking.booking_id %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @room_booking.room_id %>
+</p>
+
+<%= link_to 'Edit', edit_room_booking_path(@room_booking) %> |
+<%= link_to 'Back', room_bookings_path %>

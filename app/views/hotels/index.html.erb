@@ -2,7 +2,14 @@
 
 <h1>Hotels</h1>
 
-<table>
+<%= form_tag hotels_path, :method => 'get' do %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "search" %>
+<% end %>
+<br>
+<%= link_to "advance filter!", new_filter_path %>
+<br>
+<table border="2">
   <thead>
     <tr>
       <th>Name</th>
@@ -17,14 +24,19 @@
       <tr>
         <td><%= hotel.name %></td>
         <td><%= hotel.address %></td>
-        <td><%= hotel.location.city %></td>
+        <td><%= hotel.location.city %></td>  
+        <td><%= link_to 'Show', hotel %></td>
 
+      
         <% if current_user && current_user.admin %>
   
        <%# <td> <%= link_to 'add categories', categories_path</td> %>
+       
         <td><%= link_to 'Edit', edit_hotel_path(hotel) %></td>
         <td><%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
        <td><%= link_to 'Show', hotel %></td>
+
         <% end %>
       </tr>
     <% end %>
@@ -32,5 +44,5 @@
 </table>
 
 <br>
-
-<%= link_to 'New Hotel', new_hotel_path %>
+<%# <% if current_user && current_user.hotelowner  %>
+<%#= link_to 'New Hotel', new_hotel_path %> 

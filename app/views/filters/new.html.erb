@@ -1,0 +1,29 @@
+<h1>Filter your hotels</h1>
+
+<%= form_for @filter, html: {class: "pure-form"} do |f| %>
+
+<div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+</div>
+
+<div class="field">
+<%= f.label :category %><br>
+<%= f.select :category, options_for_select(@cat_name), :include_blank => true %>
+</div>
+<br>
+<%#= f.collection_select :category_ids, Category.all,:id,:name, include_blank: false %>
+
+
+<div class="field">
+<p><%= f.label :min_price, "min price" %> - <%= f.text_field :min_price, size:10 %></p>
+<p><%= f.label :min_price, "mix price" %> - <%= f.text_field :max_price, size:10 %></p>
+
+</div>
+
+<div class="actions"><%= f.submit "search", class: "pure-button pure-button-primary"%>
+</div>
+
+<% end %>
+<br>
+<p><%= link_to "back", hotels_path %></p>

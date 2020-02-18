@@ -4,7 +4,8 @@ class HotelsController < ApplicationController
   # GET /hotels
   # GET /hotels.json
   def index
-    @hotels = Hotel.all
+    @hotels = Hotel.search(params[:search])
+    #@hotels = Hotel.ransack(params[:id])
   end
 
   # GET /hotels/1
@@ -14,6 +15,7 @@ class HotelsController < ApplicationController
 
   # GET /hotels/new
   def new
+   # @hotel.user = current_user
     @hotel = Hotel.new
   end
 

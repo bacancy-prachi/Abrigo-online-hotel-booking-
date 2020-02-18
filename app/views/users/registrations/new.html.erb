@@ -23,7 +23,9 @@
 
   <div>
   <%= f.label :select_user_type%><br/>
-  <%= select_tag(:role_id, raw('<option value="1">Admin</option><option value="2">Customer</option><option value="3">Hotelowner</option>')) %>
+  <%# <%= select_tag(:role_id, raw('<option value="1">Admin</option><option value="2">Customer</option><option value="3">Hotelowner</option>')) %>
+ <%= f.collection_select :role_ids, Role.all,:id,:name, include_blank: false %>
+ <%#= f.select(:role, options_for_select(@roles)) %>
   </div>
   <br/>
 

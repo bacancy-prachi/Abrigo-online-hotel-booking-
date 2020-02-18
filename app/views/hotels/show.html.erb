@@ -22,6 +22,10 @@
   <strong>Location:</strong>
   <%= @hotel.location.city%>
 </p>
-
-<%= link_to 'Edit', edit_hotel_path(@hotel) %> |
+<br>
+<%= link_to 'book now!', bookings_path %>
+<% if current_user && current_user.admin %>
+<%= link_to 'Edit', edit_hotel_path(@hotel) %> 
+<% end %>
+<br>
 <%= link_to 'Back', hotels_path %>

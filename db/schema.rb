@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_164304) do
+ActiveRecord::Schema.define(version: 2020_02_18_043131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,14 +37,10 @@ ActiveRecord::Schema.define(version: 2020_02_13_164304) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.datetime "check_in"
-    t.datetime "check_out"
     t.integer "no_of_rooms"
     t.bigint "user_id", null: false
-    t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["room_id"], name: "index_bookings_on_room_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -52,6 +48,15 @@ ActiveRecord::Schema.define(version: 2020_02_13_164304) do
     t.string "name"
     t.bigint "price"
     t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "filters", force: :cascade do |t|
+    t.string "city"
+    t.string "category"
+    t.integer "min_price"
+    t.integer "max_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -82,8 +87,18 @@ ActiveRecord::Schema.define(version: 2020_02_13_164304) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
+  create_table "room_bookings", force: :cascade do |t|
+    t.datetime "check_in"
+    t.datetime "check_out"
+    t.bigint "booking_id", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_room_bookings_on_booking_id"
+    t.index ["room_id"], name: "index_room_bookings_on_room_id"
+  end
+
   create_table "rooms", force: :cascade do |t|
-    t.boolean "availibility"
     t.bigint "hotel_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -114,9 +129,10 @@ ActiveRecord::Schema.define(version: 2020_02_13_164304) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookings", "rooms"
   add_foreign_key "bookings", "users"
   add_foreign_key "hotels", "locations"
+  add_foreign_key "room_bookings", "bookings"
+  add_foreign_key "room_bookings", "rooms"
   add_foreign_key "rooms", "categories"
   add_foreign_key "rooms", "hotels"
 end
