@@ -23,7 +23,9 @@
   <%= @hotel.location.city%>
 </p>
 <br>
+<% if current_user %>
 <%= link_to 'book now!', bookings_path %>
+<% end %>
 <% if current_user && current_user.admin %>
 <%= link_to 'Edit', edit_hotel_path(@hotel) %> 
 <% end %>

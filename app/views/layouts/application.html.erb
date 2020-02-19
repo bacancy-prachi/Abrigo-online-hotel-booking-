@@ -9,7 +9,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Abrigo</a>
+    <img src="/assets/icon.jpg" height="60px" width="60px">
+    
+    <a class="navbar-brand" href="#"><h2><b><i>Abrigo</h2></a>
     <% if current_user%>
     
      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-outline-success my-2 my-sm-0"%>
@@ -26,6 +28,10 @@
  <%#= link_to 'show hotel', hotels_path, class: "btn btn-outline-success my-2 my-sm-0" %>
  <%# <%= link_to 'show user', users_path,  class: "btn btn-outline-success my-2 my-sm-0" %>
 <%# end %> 
+
+
+
+
 
 
     </nav>

@@ -7,7 +7,7 @@ ruby '2.7.0'
 gem 'hirb'
 gem 'rubocop', require: false
 gem 'devise'
-gem 'authority'
+gem 'cancancan'
 gem 'rolify'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
