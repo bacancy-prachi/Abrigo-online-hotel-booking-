@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   rolify
+  resourcify
   # include Authority::UserAbilities
   # has_many :bookings
   # Include default devise modules. Others available are:

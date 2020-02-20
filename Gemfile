@@ -9,6 +9,8 @@ gem 'rubocop', require: false
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
+gem 'jquery-rails'
+gem 'cocoon'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
