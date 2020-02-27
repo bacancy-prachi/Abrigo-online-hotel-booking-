@@ -1,55 +1,57 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Hotels</h1>
 
-<%= form_tag hotels_path, :method => 'get' do %>
-<div class="active-pink-3 active-pink-4 mb-4">
-<%= text_field_tag :search, params[:search] %>
+<div class="d-flex bd-highlight">
 
-<%= submit_tag "search" %>
-
+  <%= form_tag hotels_path, :method => 'get', class: "form-inline"  do %>
+  <div class="p-2 bd-highlight">
+    <%= text_field_tag :search, params[:search], class: "form-control form-control-sm ml-3 w-75", type: "text", placeholder: "Search" %>
+  </div>
+  <div class="p-2 bd-highlight l-3">
+    <%= submit_tag "search", class: "btn btn-success" %>
+  </div>
 </div>
 <% end %>
 <br>
 <%= link_to "advance filter!", new_filter_path %>
 <br>
 <table class="table">
-  <thead class="thead-dark">
+  <thead class="thead bg-success">
     <tr>
       <th>Name</th>
       <th>Address</th>
       <th>Location</th>
-     
-       <th>Show</th>
-        <% if current_user && current_user.admin %>
-        <th>Edit</th>
-         <th>Destroy</th>
-          <th>Show</th>
-          <% end %>
-     
+      
+      <th>Show</th>
+      <% if current_user && current_user.admin %>
+      <th>Edit</th>
+      <th>Destroy</th>
+      <th>Show</th>
+      <% end %>
+      
     </tr>
   </thead>
 
   <tbody>
     <% @hotels.each do |hotel| %>
-      <tr>
-        <td><%= hotel.name %></td>
-        <td><%= hotel.address %></td>
-        <td><%= hotel.location.city %></td>  
-        <td><%= link_to 'Show', hotel %></td>
+    <tr>
+      <td><%= hotel.name %></td>
+      <td><%= hotel.address %></td>
+      <td><%= hotel.location.city %></td>  
+      <td><%= link_to 'Show', hotel %></td>
 
       
-        <% if current_user && current_user.admin %>
-  
-       <%# <td> <%= link_to 'add categories', categories_path</td> %>
-       
-        <td><%= link_to 'Edit', edit_hotel_path(hotel) %></td>
-        <td><%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        
-       <td><%= link_to 'Show', hotel %></td>
+      <% if current_user && current_user.admin %>
+      
+      <%# <td> <%= link_to 'add categories', categories_path</td> %>
+      
+      <td><%= link_to 'Edit', edit_hotel_path(hotel) %></td>
+      <td><%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      
+      <td><%= link_to 'Show', hotel %></td>
 
-        <% end %>
-      </tr>
+      <% end %>
+    </tr>
     <% end %>
   </tbody>
 </table>

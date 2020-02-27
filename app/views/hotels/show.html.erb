@@ -1,26 +1,27 @@
-
-
 <p>
-  <strong>Name:</strong>
-  <%= @hotel.name %>
+	<strong>Name:</strong>
+	<%= @hotel.name %>
 </p>
 
 <p>
-  <strong>Address:</strong>
-  <%= @hotel.address %>
+	<strong>Address:</strong>
+	<%= @hotel.address %>
 </p>
 
-<% if @hotel.image.present? %>
+<% if @hotel.images.present? %>
 <p>
-<%= image_tag(@hotel.image,) %>
+	<% (0...@hotel.images.count).each do |image| %>
+	<%= image_tag(@hotel.thumbnail(image)) %>
+	<% end %>
 </p>
+
 <% else %>
 <p> Image not uploaded </p>
 <% end %>
 
 <p>
-  <strong>Location:</strong>
-  <%= @hotel.location.city%>
+	<strong>Location:</strong>
+	<%= @hotel.location.city%>
 </p>
 <br>
 <% if current_user %>

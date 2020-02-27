@@ -13,7 +13,7 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
-  config.action_mailer.default_url_options = {host: "localhost", post: 3000 }
+  config.action_mailer.default_url_options = { host: 'localhost', post: 3000 }
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
@@ -57,14 +57,14 @@ Rails.application.configure do
   config.assets.quiet = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  #EDITOR="vi" rails credentials:edit
-  :user_name => "prachi.jain@bacancytechnology.com",
-  :password => "Prachi@123",
-  :domain => 'gmail.com',
-  :address => 'smtp.gmail.com',
-  :port => 587,
-  :authentication => :plain,
-  :enable_starttls_auto => true
+    # EDITOR="vi" rails credentials:edit
+    user_name: 'prachi.jain@bacancytechnology.com',
+    password: 'Prachi@123',
+    domain: 'gmail.com',
+    address: 'smtp.gmail.com',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
   }
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true

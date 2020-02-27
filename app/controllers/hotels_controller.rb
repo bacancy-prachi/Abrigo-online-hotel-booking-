@@ -1,38 +1,37 @@
+# frozen_string_literal: true
+
 class HotelsController < ApplicationController
-  before_action :set_hotel, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :set_hotel, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[show index]
   # GET /hotels
   # GET /hotels.json
   def index
     @hotels = Hotel.search(params[:search])
-    #@hotels = Hotel.ransack(params[:id])
+    # @hotels = Hotel.ransack(params[:id])
   end
 
   # GET /hotels/1
   # GET /hotels/1.json
-  def show
-  end
+  def show; end
 
   # GET /hotels/new
   def new
-   # @hotel.user = current_user
+    # @hotel.user = current_user
     @hotel = Hotel.new
   end
 
   # GET /hotels/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /hotels
   # POST /hotels.json
   def create
     @hotel = Hotel.new(hotel_params)
-   # @hotel.user = current_user
-   byebug
-    @hotel_owner = User.new()
+    # @hotel.user = current_user
+    @hotel_owner = User.new
     @hotel_owner.email = "#{@hotel.name}@gmail.com"
-    @hotel_owner.password = "hotelowner123"
-    
+    @hotel_owner.password = 'hotelowner123'
+
     respond_to do |format|
       if @hotel.save && @hotel_owner.save
         @hotel_owner.add_role :hotelowner
@@ -70,13 +69,14 @@ class HotelsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_hotel
-      @hotel = Hotel.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def hotel_params
-      params.require(:hotel).permit(:name, :address, :image, :location_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_hotel
+    @hotel = Hotel.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def hotel_params
+    params.require(:hotel).permit(:name, :address,:location_id, images: [])
+  end
 end

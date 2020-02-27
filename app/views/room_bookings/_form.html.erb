@@ -1,17 +1,17 @@
 <%= form_with(model: room_booking, local: true) do |form| %>
-  <% if room_booking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(room_booking.errors.count, "error") %> prohibited this room_booking from being saved:</h2>
+<% if room_booking.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(room_booking.errors.count, "error") %> prohibited this room_booking from being saved:</h2>
 
-      <ul>
-        <% room_booking.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% room_booking.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 <div class="nested-fields">
-    <div class="field">
+  <div class="field">
     <%= form.label :check_in %>
     <%= form.datetime_select :check_in %>
   </div>
@@ -23,15 +23,15 @@
 
   <div class="field">
    <%= form.collection_select :category_ids, Category.all,:id,:name, include_blank: false %>
-  
-  </div>
-  <div>
+   
+ </div>
+ <div>
 
-        <%= link_to_remove_association "remove bookings", form %>
-    </div>
+  <%= link_to_remove_association "remove bookings", form %>
 </div>
-  
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
 <% end %>

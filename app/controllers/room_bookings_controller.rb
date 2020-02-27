@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class RoomBookingsController < ApplicationController
-  before_action :set_room_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_room_booking, only: %i[show edit update destroy]
 
   # GET /room_bookings
   # GET /room_bookings.json
@@ -9,18 +11,16 @@ class RoomBookingsController < ApplicationController
 
   # GET /room_bookings/1
   # GET /room_bookings/1.json
-  def show
-  end
+  def show; end
 
   # GET /room_bookings/new
   def new
     @room_booking = RoomBooking.new
-    #@cat_name = Category.distinct.pluck(:name)
+    # @cat_name = Category.distinct.pluck(:name)
   end
 
   # GET /room_bookings/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /room_bookings
   # POST /room_bookings.json
@@ -63,13 +63,14 @@ class RoomBookingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_room_booking
-      @room_booking = RoomBooking.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def room_booking_params
-      params.require(:room_booking).permit(:check_in, :check_out, :booking_id, :room_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_room_booking
+    @room_booking = RoomBooking.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def room_booking_params
+    params.require(:room_booking).permit(:check_in, :check_out, :booking_id, :room_id)
+  end
 end

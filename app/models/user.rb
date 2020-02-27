@@ -1,20 +1,18 @@
-class User < ApplicationRecord
+# frozen_string_literal: true
 
+class User < ApplicationRecord
   rolify
-  
+  resourcify
   # include Authority::UserAbilities
-   has_many :bookings
+  has_many :bookings
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  after_create :assign_default_role
 
-
-after_save :assign_default_role
-
-def assign_default_role
-add_role(:customer) if roles.blank?
-end
- 
+  def assign_default_role
+    add_role(:customer) if roles.blank?
+  end
 end

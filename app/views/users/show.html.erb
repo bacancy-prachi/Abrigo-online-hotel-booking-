@@ -5,13 +5,13 @@
   <strong>Availibility:</strong>
   <%= @room.availibility %>
 <% @users.each do |user| %>
-<table border="2">
+<table class="table">
 
 <%# <% v = UsersRole.where(user_id=user.id).role_id%> 
 <%# <user% w = Role.find(v).name%>
 <tr>
  <td> <%= user.email %></td>
- <td> <%= user.roles.name%></td>
+ <td> <%= user.role%></td>
  </tr>
 </table>  
 <% end %>
