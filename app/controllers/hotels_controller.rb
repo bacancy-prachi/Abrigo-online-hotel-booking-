@@ -27,9 +27,15 @@ class HotelsController < ApplicationController
   # POST /hotels.json
   def create
     @hotel = Hotel.new(hotel_params)
-    @hotel.user = current_user
+   # @hotel.user = current_user
+   byebug
+    @hotel_owner = User.new()
+    @hotel_owner.email = "#{@hotel.name}@gmail.com"
+    @hotel_owner.password = "hotelowner123"
+    
     respond_to do |format|
-      if @hotel.save
+      if @hotel.save && @hotel_owner.save
+        @hotel_owner.add_role :hotelowner
         format.html { redirect_to @hotel, notice: 'Hotel was successfully created.' }
         format.json { render :show, status: :created, location: @hotel }
       else

@@ -11,30 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :check_in %>
-    <%= form.datetime_select :check_in %>
-  </div>
 
-  <div class="field">
-    <%= form.label :check_out %>
-    <%= form.datetime_select :check_out %>
+<h3>Book rooms</h3>
+    <div id="room_bookings">
+<%= form.fields_for :room_bookings,remote: true do |room_booking| %>
+<%= render 'room_booking_fields', :f => :room_booking %>
+  
+<% end %>
+<div class="links">
+    <%= link_to_add_association "add bookings", form, :room_bookings %>
   </div>
+  </div>
+  
 
-  <div class="field">
-    <%= form.label :no_of_rooms %>
-    <%= form.number_field :no_of_rooms %>
-  </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :room_id %>
-    <%= form.text_field :room_id %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>

@@ -1,4 +1,18 @@
 class UsersController < ApplicationController
-  def home
+  def show
+    @users = User.all
   end
+ 
+  # def create
+  #   if @user.save
+  #     UserMailer.signup_confirmation(@user).deliver
+  #     redirect_to @user, notice: "signed up successfully."
+   
+  # else
+  #   render :new
+  # end
+  # end
+
+  
+
 end

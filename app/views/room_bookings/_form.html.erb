@@ -10,8 +10,8 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="nested-fields">
+    <div class="field">
     <%= form.label :check_in %>
     <%= form.datetime_select :check_in %>
   </div>
@@ -22,15 +22,15 @@
   </div>
 
   <div class="field">
-    <%= form.label :booking_id %>
-    <%= form.text_field :booking_id %>
+   <%= form.collection_select :category_ids, Category.all,:id,:name, include_blank: false %>
+  
   </div>
+  <div>
 
-  <div class="field">
-    <%= form.label :room_id %>
-    <%= form.text_field :room_id %>
-  </div>
-
+        <%= link_to_remove_association "remove bookings", form %>
+    </div>
+</div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>

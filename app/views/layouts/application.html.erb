@@ -4,6 +4,7 @@
     <title>Abrigo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -15,12 +16,17 @@
     <% if current_user%>
     
      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-outline-success my-2 my-sm-0"%>
+     <%# <h3 style="float: right">hello! <%= current_user.email%>
         <% else %>
         
         <%= link_to 'Sign up', new_user_registration_path,  class: "btn btn-outline-success my-2 my-sm-0" %>
         <%= link_to 'Sign in', new_user_session_path,  class: "btn btn-outline-success my-2 my-sm-0" %>
         <% end %>
         <%= link_to 'show hotel', hotels_path, class: "btn btn-outline-success my-2 my-sm-0" %>
+        <% if current_user && current_user.admin %>
+          <%= link_to 'show user', users_path, class: "btn btn-outline-success my-2 my-sm-0" %>
+        
+<% end %>
 
 
 <%# <% if current_user && current_user.admin%>

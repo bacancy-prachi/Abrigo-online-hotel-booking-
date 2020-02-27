@@ -69,6 +69,6 @@ class RoomsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def room_params
-      params.require(:room).permit(:availibility, :hotel_id, :category_id)
+      params.require(:room).permit(:hotel_id, :category_id)
     end
 end

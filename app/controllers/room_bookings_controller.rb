@@ -15,6 +15,7 @@ class RoomBookingsController < ApplicationController
   # GET /room_bookings/new
   def new
     @room_booking = RoomBooking.new
+    #@cat_name = Category.distinct.pluck(:name)
   end
 
   # GET /room_bookings/1/edit

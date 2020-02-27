@@ -7,8 +7,9 @@ ruby '2.7.0'
 gem 'hirb'
 gem 'rubocop', require: false
 gem 'devise'
-gem 'cancancan'
 gem 'rolify'
+gem 'cancancan'
+
 gem 'jquery-rails'
 gem 'cocoon'
 gem 'ransack', github: 'activerecord-hackery/ransack'
