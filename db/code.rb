@@ -8,3 +8,8 @@ elsif a == '2'
 elsif a == '3'
   @user.add_role :customer
 end
+
+
+
+@hotel = Hotel.find(params[:hotel_id])    
+    @rooms = Room.where(hotel_id: params[:hotel_id])

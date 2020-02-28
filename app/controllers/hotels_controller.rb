@@ -12,7 +12,8 @@ class HotelsController < ApplicationController
 
   # GET /hotels/1
   # GET /hotels/1.json
-  def show; end
+  def show 
+  end
 
   # GET /hotels/new
   def new

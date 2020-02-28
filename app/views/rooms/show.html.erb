@@ -6,14 +6,14 @@
 </p> 
 
 <p>
-  <strong>Hotel:</strong>
-  <%= @room.hotel_id %>
+  <strong>Room number:</strong>
+  <%= @room.room_number %>
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @room.category_id %>
+  <strong>Availibility:</strong>
+  <%= @room.availibility%>
 </p>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Back', rooms_path %>
+<%= link_to 'Back', hotel_rooms_path %>

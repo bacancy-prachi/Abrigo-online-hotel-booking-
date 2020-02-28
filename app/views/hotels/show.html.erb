@@ -1,3 +1,7 @@
+<br/>
+<% if current_user && current_user.admin %>
+<%= link_to 'add room details!',hotel_rooms_path(@hotel) , class: "btn btn-light" %>
+<% end %>
 <p>
 	<strong>Name:</strong>
 	<%= @hotel.name %>

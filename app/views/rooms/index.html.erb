@@ -2,11 +2,10 @@
 
 <h1>Rooms</h1>
 
-<table>
-  <thead>
-    <tr>
+<table class="table">
+  <thead class="bg-success">
+    <th>Room number</th>
       <th>Availibility</th>
-      <th>Hotel</th>
       <th>Category</th>
       <th colspan="3"></th>
     </tr>
@@ -15,12 +14,12 @@
   <tbody>
     <% @rooms.each do |room| %>
       <tr>
-        <td><%#= room.availibility %></td>
-        <td><%= room.hotel_id %></td>
-        <td><%= room.category_id %></td>
-        <td><%= link_to 'Show', room %></td>
-        <td><%= link_to 'Edit', edit_room_path(room) %></td>
-        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= room.room_number %></td>
+        <td><%= room.availibility %></td>
+        <td><%= room.category.name %></td>
+        <td><%= link_to 'Show', room_path(@hotel, room)  %></td>
+        <td><%= link_to 'Edit', edit_room_path(@hotel, room) %></td>
+        <td><%= link_to 'Destroy', room_path(@hotel, room), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Room', new_room_path %>
+<%= link_to 'New Room', new_hotel_room_path %>

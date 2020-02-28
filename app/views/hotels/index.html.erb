@@ -26,7 +26,7 @@
       <% if current_user && current_user.admin %>
       <th>Edit</th>
       <th>Destroy</th>
-      <th>Show</th>
+  
       <% end %>
       
     </tr>
@@ -38,9 +38,7 @@
       <td><%= hotel.name %></td>
       <td><%= hotel.address %></td>
       <td><%= hotel.location.city %></td>  
-      <td><%= link_to 'Show', hotel %></td>
-
-      
+       <td><%= link_to 'Show', hotel %></td>
       <% if current_user && current_user.admin %>
       
       <%# <td> <%= link_to 'add categories', categories_path</td> %>
@@ -48,7 +46,8 @@
       <td><%= link_to 'Edit', edit_hotel_path(hotel) %></td>
       <td><%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       
-      <td><%= link_to 'Show', hotel %></td>
+      
+     
 
       <% end %>
     </tr>
@@ -57,5 +56,6 @@
 </table>
 
 <br>
-<%# <% if current_user && current_user.hotelowner  %>
+<% if current_user && current_user.admin  %>
 <%= link_to 'New Hotel', new_hotel_path %> 
+<% end %>

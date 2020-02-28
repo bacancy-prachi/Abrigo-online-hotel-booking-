@@ -6,10 +6,11 @@ class Room < ApplicationRecord
   belongs_to :category
 
   def display_room
-  	self.id.to_s + self.category.name
+  	self.room_number.to_s + "("+self.category.name+")"
   end
-
-  # scope available_rooms: {
-  	
-  # }
+  # belongs_to :room
+  # accepts_nested_attributes_for :room, reject_if: :all_blank, allow_destroy: true
+  scope :available_rooms, -> {
+   where(availibility: true)    	
+   }
 end
