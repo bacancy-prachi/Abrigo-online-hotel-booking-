@@ -6,10 +6,9 @@ class Hotel < ApplicationRecord
   belongs_to :location, class_name: 'User'
   has_many_attached :images
 
-  def thumbnail input
-    return self.images[input].variant(resize: '300x300!').processed
+  def thumbnail(input)
+    images[input].variant(resize: '310x320!').processed
   end
-
 
   has_many :rooms
   belongs_to :location
@@ -20,6 +19,4 @@ class Hotel < ApplicationRecord
       all
     end
   end
-
-
 end

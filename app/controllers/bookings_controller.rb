@@ -24,6 +24,7 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
+    byebug
     @booking = Booking.new(booking_params)
 
     respond_to do |format|
@@ -70,6 +71,6 @@ class BookingsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def booking_params
-    params.require(:booking).permit(:user_id, room_bookings_attributes: %i[id check_in check_out _destroy], categories_attributes: %i[id name _destroy])
+    params.require(:booking).permit(:user_id,:hotel_id, room_bookings_attributes: %i[id check_in check_out _destroy], categories_attributes: %i[id name _destroy])
   end
 end

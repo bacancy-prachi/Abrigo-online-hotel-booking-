@@ -1,4 +1,4 @@
-<%= form_with(model: category, local: true) do |form| %>
+<%= form_with(model: [@category], local: true) do |form| %>
   <% if category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
@@ -10,6 +10,16 @@
       </ul>
     </div>
   <% end %>
+
+
+  <div style="width: 340px;
+margin: 50px auto;">
+<div class="card">
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong class="text-success">your hotel categories</strong>
+  </h5>
+  <div class="card-body px-lg-5 pt-0">
+  <div class="text-center">
 
   <div class="field">
     <%= form.label :name %>

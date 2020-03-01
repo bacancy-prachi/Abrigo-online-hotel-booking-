@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <%= form_with(model: booking, local: true) do |form| %>
   <% if booking.errors.any? %>
     <div id="error_explanation">
@@ -22,3 +23,7 @@
     <%= form.submit %>
   </div>
 <% end %>
+<% else %>
+<p> Please sign in first! </p>
+<% end %>
+

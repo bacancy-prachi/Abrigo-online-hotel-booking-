@@ -5,19 +5,17 @@ Rails.application.routes.draw do
   resources :filters
   resources :room_bookings
   resources :bookings
- 
- 
+  resources :categories
+
   resources :hotels do
-       resources :rooms, shallow: true do
-           resources :categories
-       end
+    resources :rooms, shallow: true do
+    end
   end
-  #get 'rooms/new_room/:hotel_id' => "rooms#create", as: :new_room 
+  # get 'rooms/new_room/:hotel_id' => "rooms#create", as: :new_room
   resources :locations
   root to: 'users#home'
   get 'users', to: 'users#show'
   devise_for :users
-
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

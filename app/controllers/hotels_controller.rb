@@ -12,8 +12,7 @@ class HotelsController < ApplicationController
 
   # GET /hotels/1
   # GET /hotels/1.json
-  def show 
-  end
+  def show; end
 
   # GET /hotels/new
   def new
@@ -78,6 +77,6 @@ class HotelsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def hotel_params
-    params.require(:hotel).permit(:name, :address,:location_id, images: [])
+    params.require(:hotel).permit(:name, :address, :location_id, images: [])
   end
 end

@@ -15,4 +15,12 @@ class User < ApplicationRecord
   def assign_default_role
     add_role(:customer) if roles.blank?
   end
+
+  def destroy
+    update_attributes(deactivated: true) unless deactivated
+    end
+
+  def active_for_authentication?
+    super && !deactivated
+      end
 end

@@ -4,14 +4,21 @@
 <%# <p>
   <strong>Availibility:</strong>
   <%= @room.availibility %>
+  <table class="table">
+  	<thead class="bg-success">
+  <th >User Emails</th>
+    <th>User Status</th>
+    </thead>
 <% @users.each do |user| %>
-<table class="table">
+<tr>
+ <td> <%= user.email %></td>
+
+
+ </tr>
+ <% end %>
+</table> 
 
 <%# <% v = UsersRole.where(user_id=user.id).role_id%> 
 <%# <user% w = Role.find(v).name%>
-<tr>
- <td> <%= user.email %></td>
- <td> <%= user.role%></td>
- </tr>
-</table>  
-<% end %>
+ 
+

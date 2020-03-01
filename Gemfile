@@ -5,14 +5,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
 gem 'cancancan'
+gem 'cocoon'
 gem 'devise'
 gem 'hirb'
+gem 'jquery-rails'
+gem 'rails-bootstrap-toggle-buttons'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'rolify'
 gem 'rubocop', require: false
-
-gem 'cocoon'
-gem 'jquery-rails'
-gem 'ransack', github: 'activerecord-hackery/ransack'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use sqlite3 as the database for Active Record

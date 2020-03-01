@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
 
 <h1>Bookings</h1>
@@ -31,3 +32,6 @@
 <br>
 
 <%= link_to 'New Booking', new_booking_path %>
+<% else %>
+<p> Please sign in first! </p>
+<% end %>

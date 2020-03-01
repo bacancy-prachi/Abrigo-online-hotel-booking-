@@ -10,6 +10,14 @@
   </ul>
 </div>
 <% end %>
+<div style="width: 340px;
+margin: 50px auto;">
+<div class="card">
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong class="text-success">your hotel</strong>
+  </h5>
+  <div class="card-body px-lg-5 pt-0">
+  <div class="text-center">
 
 <div class="field">
   <%= form.label :name %>
@@ -25,12 +33,12 @@
   <%= form.label :images %>
   <%= form.file_field :images, multiple: true %>
 </div>
-
+<br/>
 <div class="field">
   <%#= select("location", "location_id", Location.all.collect {|l| [ l.city, l.id ] }, { include_blank: true }) %>
   <%= form.collection_select :location_id, Location.all,:id,:city, include_blank: false %>
 </div>
-
+<br/>
 <%#= link_to 'Add Rooms', new_room_path %>
 
 <%# <%= redirect_to '/category/new' %>
