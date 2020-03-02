@@ -4,11 +4,14 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
+
 gem 'cancancan'
 gem 'cocoon'
 gem 'devise'
 gem 'hirb'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-datetimepicker-rails'
 gem 'rails-bootstrap-toggle-buttons'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'rolify'

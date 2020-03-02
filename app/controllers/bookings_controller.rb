@@ -25,8 +25,11 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     byebug
-    @booking = Booking.new(booking_params)
-
+    @booking = current_user.bookings.build(booking_params)
+    #@room_booking = RoomBooking.create(check_in: params[:booking][:room_bookings_attributes]["1583155206120"][:], check_out: params[:booking][:room_bookings_attributes]["1583155206120"][:room_id]
+    # @booking = Booking.new(booking_params)
+    # @booking.user_id = current_user
+    
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
@@ -36,6 +39,10 @@ class BookingsController < ApplicationController
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirm
+    render :confirm
   end
 
   # PATCH/PUT /bookings/1

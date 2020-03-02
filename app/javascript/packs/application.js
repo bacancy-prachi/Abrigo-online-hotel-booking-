@@ -8,6 +8,18 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
+require("jquery-ui")
+require("bootstrap-datetimepicker")
+require("moment.min")
+require("mdDateTimePicker.min")
+require("draggabilly.pkgd.min")
+
+
+
+
+
+require("packs/date-time")
 //= require jquery3
 //= require bootstrap-toggle-buttons
 //= require jquery_ujs

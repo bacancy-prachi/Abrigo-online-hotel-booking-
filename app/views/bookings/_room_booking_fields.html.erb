@@ -6,11 +6,18 @@
   </div>
   <div class="field">
     <%= f.label :check_in %>
-    <%= f.datetime_select :check_in %>
+    <%= f.datetime_select :check_in, :ampm => true, :minute_step => 15 %>
+    <%#= f.datetime_field :check_in %>
+    <%#= f.date_field :check_in,  :id => 'datetimepicker6' %>
+    <%#= f.time_field :check_in, :id => 'datetimepicker6' %>
+    <%#= render 'time' %>
   </div>
   <div class="field">
     <%= f.label :check_out %>
-    <%= f.datetime_select :check_out %>
+    <%= f.datetime_select :check_out, :ampm => true, :minute_step => 15 %>
+    <%#= f.datetime_field :check_out %>
+    <%#= f.date_field :check_out,  :id => 'datetimepicker7' %>
+     <%#= f.time_field :check_in, :id => 'datetimepicker6' %>
   </div>
   <div>
     <%= link_to_remove_association "remove bookings", f %>
