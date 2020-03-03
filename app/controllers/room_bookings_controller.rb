@@ -9,6 +9,11 @@ class RoomBookingsController < ApplicationController
     @room_bookings = RoomBooking.all
   end
 
+  def user_index
+    booking = Booking.where(user_id: current_user.id)
+    @room_bookings = RoomBooking.where(booking: booking)
+  end
+
   # GET /room_bookings/1
   # GET /room_bookings/1.json
   def show

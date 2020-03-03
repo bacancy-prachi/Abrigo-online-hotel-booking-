@@ -3,11 +3,17 @@
 Rails.application.routes.draw do
   # devise_for :users, :controllers => {:registrations => "users/registrations"}
   resources :filters
-  resources :room_bookings
+
+  resources :room_bookings do
+    get 'user_index', on: :collection, action: :user_index
+  end
+
   resources :bookings
   #get 'bookings', to: 'bookings#confirm'
   resources :categories
 
+  
+  
   resources :hotels do
     resources :rooms, shallow: true do
     end
@@ -17,6 +23,7 @@ Rails.application.routes.draw do
   root to: 'users#home'
   get 'users', to: 'users#show'
   devise_for :users
+ 
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
