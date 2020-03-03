@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :filters
   resources :room_bookings
   resources :bookings
-  #get 'bookings', to: 'bookings#confirm'
+  get 'bookings', to: 'bookings#confirm'
   resources :categories
 
   resources :hotels do

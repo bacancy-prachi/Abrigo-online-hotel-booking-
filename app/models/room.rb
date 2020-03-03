@@ -3,6 +3,7 @@
 class Room < ApplicationRecord
   belongs_to :hotel
   has_many :bookings, through: :room_bookings
+  has_many :bookings
   belongs_to :category
 
   def display_room

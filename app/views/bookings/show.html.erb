@@ -1,29 +1,19 @@
 <% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
-
+<%
 <p>
   <strong>Check in:</strong>
-  <%= @booking.check_in %>
+  <%= @room_booking.check_in %>
 </p>
 
 <p>
   <strong>Check out:</strong>
-  <%= @booking.check_out %>
+  <%= @room_booking.check_out %>
 </p>
 
 <p>
   <strong>No of rooms:</strong>
-  <%= @booking.no_of_rooms %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @booking.user_id %>
-</p>
-
-<p>
-  <strong>Room:</strong>
-  <%= @booking.room_id %>
+  <%= @room_booking.room_number %>
 </p>
 
 <%= link_to 'Edit', edit_booking_path(@booking) %> |

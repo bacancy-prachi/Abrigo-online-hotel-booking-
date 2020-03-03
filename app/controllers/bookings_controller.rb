@@ -11,7 +11,9 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1
   # GET /bookings/1.json
-  def show; end
+  def show
+  @room_booking = RoomBooking.find(params[:id])
+   end
 
   # GET /bookings/new
   def new
@@ -24,9 +26,13 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    byebug
+    @user=User.new
+    @user=current_user.id
+    # byebug
+    # binding.pry
     @booking = current_user.bookings.build(booking_params)
-    #@room_booking = RoomBooking.create(check_in: params[:booking][:room_bookings_attributes]["1583155206120"][:], check_out: params[:booking][:room_bookings_attributes]["1583155206120"][:room_id]
+    # @room_booking = RoomBooking.new(booking_params)
+    # @room_booking = params[:booking][:room_bookings_attributes]
     # @booking = Booking.new(booking_params)
     # @booking.user_id = current_user
     
@@ -78,6 +84,7 @@ class BookingsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def booking_params
-    params.require(:booking).permit(:user_id,:hotel_id, room_bookings_attributes: %i[id check_in check_out _destroy], categories_attributes: %i[id name _destroy])
+    params.require(:booking).permit(:hotel_id, room_bookings_attributes: %i[id room_id check_in check_out _destroy], categories_attributes: %i[id name _destroy])
+    # byebug
   end
 end
