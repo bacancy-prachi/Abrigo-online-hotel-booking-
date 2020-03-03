@@ -2,13 +2,14 @@
 
 <h1>Room Bookings</h1>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="bg-success">
     <tr>
+      <th>Email</th>
       <th>Check in</th>
       <th>Check out</th>
-      <th>Booking</th>
       <th>Room</th>
+      <th>Category</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +17,11 @@
   <tbody>
     <% @room_bookings.each do |room_booking| %>
       <tr>
+        <td><%= room_booking.booking.user.email %></td>
         <td><%= room_booking.check_in %></td>
         <td><%= room_booking.check_out %></td>
-        <td><%= room_booking.booking_id %></td>
-        <td><%= room_booking.room_id %></td>
+        <td><%= room_booking.room.room_number %></td>
+        <td><%= room_booking.room.category.name %></td>
         <td><%= link_to 'Show', room_booking %></td>
         <td><%= link_to 'Edit', edit_room_booking_path(room_booking) %></td>
         <td><%= link_to 'Destroy', room_booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,7 +29,7 @@
     <% end %>
   </tbody>
 </table>
-
+  
 <br>
 
-<%= link_to 'New Room Booking', new_room_booking_path %>
+<%= link_to 'New Room Booking', new_booking_path %>

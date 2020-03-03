@@ -26,6 +26,7 @@
         <% if current_user && current_user.admin %>
           <%= link_to 'show user', users_path, class: "btn btn-outline-success my-2 my-sm-0" %>
           <%= link_to 'add hotel category', categories_path, class: "btn btn-outline-success my-2 my-sm-0" %>
+           <%= link_to 'show bookings', room_bookings_path, class: "btn btn-outline-success my-2 my-sm-0" %>
           
 <% end %>
 

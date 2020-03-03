@@ -3,11 +3,12 @@
 
 <h1>Bookings</h1>
 
-<table>
+<table class="table">
 
-	<thead>
+	<thead class="bg-success">
 
-			<th>Room no</th>
+			<th>Email</th>
+      <th>Room number</th>
 			<th>Check in</th>
 			<th>Check out</th>
 		
@@ -17,9 +18,10 @@
 	 <tbody>
     <% @bookings.each do |booking| %>
       <tr>
-        <td><%#= room_bookings.booking.room.room_number %></td>
-        <td><%#= booking.room_bookings.check_in %></td>
-        <td><%#= booking.room_bookings.check_out %></td>
+        <td><%= booking.user.email %></td>
+        <td><%#= booking.room_booking.room.room_number %></td>
+        <td><%#= booking.room_booking.check_in %></td>
+        <td><%#= booking.room_booking.check_out %></td>
         <td><%#= link_to 'Show', booking_path  %></td>
         <td><%#= link_to 'Edit', edit_booking_path %></td>
         <td><%#= link_to 'Destroy', booking_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>

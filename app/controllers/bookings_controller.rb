@@ -6,13 +6,16 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
+    
   end
 
   # GET /bookings/1
   # GET /bookings/1.json
   def show
-  @room_booking = RoomBooking.find(params[:id])
+
+  @room_booking = RoomBooking.new
+  #@room_booking = RoomBooking.find(params[:id])
+
    end
 
   # GET /bookings/new

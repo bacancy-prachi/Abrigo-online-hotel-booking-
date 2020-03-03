@@ -12,7 +12,7 @@ class RoomBookingsController < ApplicationController
   # GET /room_bookings/1
   # GET /room_bookings/1.json
   def show
-     @room_booking = RoomBooking.find(params[:id])
+     # @room_booking = RoomBooking.find(params[:id])
    end
 
   # GET /room_bookings/new
