@@ -13,15 +13,16 @@ class FiltersController < ApplicationController
   end
 
   def show
-    
-    l = Hotel.joins(:location).select("locations.*,hotels.*").where("locations.city=?","Ahmedabad")
 
-
-    @filter = Filter.find(params[:id])
-    @hotel = Hotel.joins(:location).select("hotels.*,locations.*").where("locations.city=?",params[:city])
-    @category = Room.joins(:hotel,:category).select("rooms.*,hotels.*,categories.*").where("categories.name=? AND categories.price<=? AND categories.price>=? AND rooms.hotel_id=?",params[:category],params[:max_price],params[:min_price],@hotel)
-
-    byebug
+    @filter = Hotel.joins(:location, rooms: :category).where("locations.city = 'Ahmedabad' AND categories.name = 'single room' AND categories.price >= 500 AND categories.price <= 1500").uniq 
+    # l = Hotel.joins(:location).select("locations.*,hotels.*").where("locations.city=?","Ahmedabad")
+    # @filter = Filter.find(params[:id])
+    # @loc  = Location.find_by("city=?",@filter.city)
+    # @hotel = Hotel.where("location_id=?",@loc.id)
+    # @cat = Category.where("name=? AND price>=? AND price<=?",@filter.category,@filter.min_price,@filter.max_price)
+    # @category = Hotel.joins(:room,:category).select("rooms.*,hotels.*,categories.*").where("categories.name=? AND categories.price<=? AND categories.price>=? AND hotels.id=?",@filter.category,@filter.max_price,@filter.min_price,@hotel.ids)
+    # @A = Room.joins(:category).where(['category.name = ? AND categories.price >= ? AND categoris.price <= ?',@filter.category,@filter.min_price,@filter.max_price])
+    # @room = Room.where("category_id=?",@cat.ids)
   end
 
   private

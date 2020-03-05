@@ -10,13 +10,13 @@
       </ul>
     </div>
   <% end %>
-  <h3>Book rooms</h3>
+  <h3 class="text-success">Book rooms</h3>
   <div id="room_bookings">
     <%= form.fields_for :room_bookings,remote: true do |room_booking| %>
       <%= render 'room_booking_fields', :f => form %>
     <% end %>
     <div class="links">
-      <%= link_to_add_association "add bookings", form, :room_bookings %>
+      <%= link_to_add_association "add bookings", form, :room_bookings, class: "text-success" %>
     </div>
   </div>
   <div class="actions">

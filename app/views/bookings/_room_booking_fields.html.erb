@@ -1,5 +1,6 @@
 <div class="box border">
 <div class="nested-fields">
+  <div class="bg-light">
   <div class="field">
     <%= f.label :room_id %>
     <%= f.select :room_id, options_for_select(@spclroom.available_rooms.map{|room| [room.display_room,room.id]}) %>
@@ -20,8 +21,11 @@
      <%#= f.time_field :check_in, :id => 'datetimepicker6' %>
   </div>
   <div>
-    <%= link_to_remove_association "remove bookings", f %>
+    <%= link_to_remove_association "remove bookings", f , class: "text-success" %>
   </div>
+
+</div>
+
 </div>
 </div>
 

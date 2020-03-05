@@ -1,17 +1,21 @@
 
-<% if current_user && current_user.admin %>
-<%= link_to 'add room details!',hotel_rooms_path(@hotel) , class: "btn btn-light" %>
-<% end %>
-<p>
-	<strong>Name:</strong>
-	<%= @hotel.name %>
-</p>
-
-<p>
-	<strong>Address:</strong>
-	<%= @hotel.address %>
-</p>
-
+<table class="table table-success">
+<thead>
+    <tr>
+      <th scope="col">Name:</th>
+      <th scope="col"><%= @hotel.name %></th>
+      
+    </tr>
+</thead>
+	<tr>
+	<td scope="col">Address:</td>
+	<td scope="col"><%= @hotel.address %></td>
+</tr>
+<tr>
+	<td scope="col">Location:</td>
+	<td scope="col"><%= @hotel.location.city%></td>
+	</tr>
+</table>
 <% if @hotel.images.present? %>
 <p>
 	<% (0...@hotel.images.count).each do |image| %>
@@ -24,15 +28,18 @@
 <% end %>
 
 <p>
-	<strong>Location:</strong>
-	<%= @hotel.location.city%>
+<% if current_user && current_user.admin %>
+<%= link_to 'add room details!',hotel_rooms_path(@hotel) ,  class: "btn btn-outline-success my-2 my-sm-0" %>
+<% end %>
 </p>
+
 <% if current_user %>
 <%= link_to 'book now!', user_index_path , class: "btn btn-outline-success my-2 my-sm-0" %>
 <% else %>
 <h3 class="text-danger">You need to login for booking.</h3>
 <% end %>
 <% if current_user && current_user.admin %>
+<br/>
 <%= link_to 'Edit', edit_hotel_path(@hotel) %> 
 <% end %>
 <br>

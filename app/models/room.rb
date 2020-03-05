@@ -7,7 +7,7 @@ class Room < ApplicationRecord
   belongs_to :category
 
   def display_room
-    room_number.to_s + '(' + category.name + ')'
+    room_number.to_s + '(' + category.name + ')' + '(' + "price"+category.price.to_s + ')'
   end
   # belongs_to :room
   # accepts_nested_attributes_for :room, reject_if: :all_blank, allow_destroy: true

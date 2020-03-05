@@ -5,12 +5,13 @@ class Hotel < ApplicationRecord
   # include Authority::Abilities
   belongs_to :location
   has_many_attached :images
+  has_many :rooms, dependent: :destroy
 
   def thumbnail(input)
-    images[input].variant(resize: '310x320!').processed
+    images[input].variant(resize: '600x300!').processed
   end
   
-  has_many :rooms, dependent: :destroy
+ 
   belongs_to :location
   def self.search(search)
     if search

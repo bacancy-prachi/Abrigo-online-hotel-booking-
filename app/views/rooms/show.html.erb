@@ -10,5 +10,5 @@
   <%= @room.availibility%>
 </p>
 
-<%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Back', hotel_rooms_path %>
+<%= link_to 'Edit', edit_room_path(params(:id)) %> |
+<%= link_to 'Back', hotel_rooms_path(@room.hotel_id) %>

@@ -1,19 +1,29 @@
 <h1>search Result</h1>
 <p><%= link_to 'back', new_filter_path %></p>
 
-<% if @filter.filter_hotels.empty? %>
+<% if @filter.empty? %>
 
 <p> no records found </p>
 
 <% else %>
-
-<% @filter.filter_hotels.each do |f| %>
-<br>
-
-<div class="div">
-
-<h1><%= f.Hotel.name %></h1>
+<table class="table">
+  <thead class="thead bg-success">
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Location</th>
+      <th>Show</th>
+    </tr>
+   </thead>
+<% @filter.each do |f| %>
+	 <tr>
+      <td><%= f.name %></td>
+      <td><%= f.address %></td>
+      <td><%= f.location.city %></td>  
+      <td><%= link_to 'Show', hotel_url(:id) %></td>
+     </tr>
 
 <% end %>
 
 <% end %>
+</table>
