@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
+    @spclroom = Room.where("hotel_id=?",params[:format])
   end
 
   # GET /bookings/1/edit

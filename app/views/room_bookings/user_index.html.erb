@@ -6,6 +6,7 @@
   <thead class="bg-success">
     <tr>
       <th>Email</th>
+      <th>Hotel name</th>
       <th>Check in</th>
       <th>Check out</th>
       <th>Room</th>
@@ -18,13 +19,14 @@
     <% @room_bookings.each do |room_booking| %>
       <tr>
         <td><%= room_booking.booking.user.email %></td>
+        <td><%= room_booking.room.hotel.name %></td>
         <td><%= room_booking.check_in %></td>
         <td><%= room_booking.check_out %></td>
         <td><%= room_booking.room.room_number %></td>
         <td><%= room_booking.room.category.name %></td>
-        <td><%= link_to 'Show', room_booking %></td>
-        <td><%= link_to 'Edit', edit_room_booking_path(room_booking) %></td>
-        <td><%= link_to 'Destroy', room_booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       <!--  <td><%#= link_to 'Show', room_booking %></td>
+        <td><%#= link_to 'Edit', edit_room_booking_path(room_booking) %></td>
+        <td><%#= link_to 'Destroy', user_index_pat(:id), method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +34,4 @@
   
 <br>
 
-<%= link_to 'New Room Booking', new_booking_path %>
+<%= link_to 'New Room Booking', new_booking_path(params[:id]) %>

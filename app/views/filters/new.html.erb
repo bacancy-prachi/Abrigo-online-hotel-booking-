@@ -1,15 +1,19 @@
-<h1>Filter your hotels</h1>
-
+<div style="width: 340px;
+margin: 50px auto;">
+<div class="card">
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Filter your hotels</strong>
+  </h5>
 <%= form_for @filter, html: {class: "pure-form"} do |f| %>
 
 <div class="field">
     <%= f.label :city %><br>
-    <%= f.text_field :city %>
+   <%= f.select :city, options_for_select(@city), :include_blank => false %>
 </div>
 
 <div class="field">
 <%= f.label :category %><br>
-<%= f.select :category, options_for_select(@cat_name), :include_blank => true %>
+<%= f.select :category, options_for_select(@cat_name), :include_blank => false %>
 </div>
 <br>
 <%#= f.collection_select :category_ids, Category.all,:id,:name, include_blank: false %>
@@ -21,9 +25,9 @@
 
 </div>
 
-<div class="actions"><%= f.submit "search", class: "pure-button pure-button-primary"%>
+<div class="actions"><%= f.submit "Filter", class: "btn-success"%>
 </div>
 
 <% end %>
 <br>
-<p><%= link_to "back", hotels_path %></p>
+<p><%= link_to "back", hotels_path %>

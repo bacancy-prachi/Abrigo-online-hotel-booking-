@@ -14,7 +14,7 @@
 </div>
 <% end %>
 <br>
-<%= link_to "advance filter!", new_filter_path %>
+<%= link_to "advance filter!", new_filter_path, class: "btn-warning" %>
 <br>
 <table class="table">
   <thead class="thead bg-success">
@@ -22,7 +22,7 @@
       <th>Name</th>
       <th>Address</th>
       <th>Location</th>
-      
+      <!-- <th>Rating</th> -->
       <th>Show</th>
       <% if current_user && current_user.admin %>
       <th>Edit</th>
@@ -39,6 +39,7 @@
       <td><%= hotel.name %></td>
       <td><%= hotel.address %></td>
       <td><%= hotel.location.city %></td>  
+      <!-- <td><%#= rating_for @hotel, 'name', star: 10 %></td> -->
        <td><%= link_to 'Show', hotel %></td>
       <% if current_user && current_user.admin %>
       

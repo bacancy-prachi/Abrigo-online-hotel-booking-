@@ -2,7 +2,7 @@
 <div class="nested-fields">
   <div class="field">
     <%= f.label :room_id %>
-    <%= f.select :room_id, options_for_select(Room.available_rooms.map{|room| [room.display_room,room.id]}) %>
+    <%= f.select :room_id, options_for_select(@spclroom.available_rooms.map{|room| [room.display_room,room.id]}) %>
   </div>
   <div class="field">
     <%= f.label :check_in %>

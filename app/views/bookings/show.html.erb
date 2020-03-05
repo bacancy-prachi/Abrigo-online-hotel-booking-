@@ -1,22 +1,17 @@
 <% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Check in:</strong>
-  <%= @room_booking.check_in %>
-</p>
+<h1>You room is booked.</h1>
 
-<p>
-  <strong>Check out:</strong>
-  <%= @room_booking.check_out %>
-</p>
+<table>
+	<th>total</th>
+	<tr></tr>
 
-<p>
-  <strong>Room number:</strong>
-  <%#= @room_booking.room.room_number %>
-</p>
+</table>
+
+
 
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
+<%= link_to 'Back', user_index_path %>
 <% else %>
 <p> Please sign in first! </p>
 <% end %>

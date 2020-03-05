@@ -12,7 +12,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white border">
     <!-- <img src="/assets/logo.png" height="100px" width="100px"> -->
     
-    <a class="navbar-brand text-success" href="#"><h2><b><i>Abrigo</h2></a>
+    <a class="navbar-brand text-success" href="/"><h2><b><i>Abrigo</h2></a>
     <% if current_user%>
     
      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-outline-success my-2 my-sm-0"%>
@@ -23,6 +23,9 @@
         <%= link_to 'Sign in', new_user_session_path,  class: "btn btn-outline-success my-2 my-sm-0" %>
         <% end %>
         <%= link_to 'show hotel', hotels_path, class: "btn btn-outline-success my-2 my-sm-0" %>
+        <% if current_user %>
+        <%#= link_to 'Your bookings', user_index_path , class: "btn btn-outline-success my-2 my-sm-0" %>
+        <% end %>
         <% if current_user && current_user.admin %>
           <%= link_to 'show user', users_path, class: "btn btn-outline-success my-2 my-sm-0" %>
           <%= link_to 'add hotel category', categories_path, class: "btn btn-outline-success my-2 my-sm-0" %>

@@ -2,8 +2,8 @@
 
 class Room < ApplicationRecord
   belongs_to :hotel
-  has_many :bookings, through: :room_bookings
-  has_many :bookings
+  has_many :room_bookings, dependent: :destroy
+  has_many :bookings, through: :room_bookings, dependent: :destroy
   belongs_to :category
 
   def display_room
@@ -14,4 +14,5 @@ class Room < ApplicationRecord
   scope :available_rooms, lambda {
                             where(availibility: true)
                           }
+
 end

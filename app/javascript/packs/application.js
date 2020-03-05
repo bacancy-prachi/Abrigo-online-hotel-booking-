@@ -14,7 +14,8 @@ require("bootstrap-datetimepicker")
 require("moment.min")
 require("mdDateTimePicker.min")
 require("draggabilly.pkgd.min")
-
+require ("jquery.raty")
+require ("ratyrate")
 
 
 

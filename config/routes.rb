@@ -1,19 +1,21 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   # devise_for :users, :controllers => {:registrations => "users/registrations"}
   resources :filters
 
   resources :room_bookings do
-    get 'user_index', on: :collection, action: :user_index
+    # get 'user_index', on: :collection, action: :user_index
+    
   end
-
+get '/room_bookings/user_index/:id' => "room_bookings#user_index", as: :user_index
   resources :bookings
   #get 'bookings', to: 'bookings#confirm'
   resources :categories
 
   
-  
+    
   resources :hotels do
     resources :rooms, shallow: true do
     end
