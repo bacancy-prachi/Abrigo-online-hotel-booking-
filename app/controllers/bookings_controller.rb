@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
   # GET /bookings/1
   # GET /bookings/1.json
   def show
-
+  
   @room_booking = RoomBooking.new
   #@room_booking = RoomBooking.find(params[:id])
 
@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
+    
     @booking = Booking.new
     @spclroom = Room.where("hotel_id=?",params[:format])
   end

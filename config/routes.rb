@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
+  namespace :charts do
+    get "new_user"
+    get "show_category"
+    get "show_hotel"
+  end 
   post '/rate' => 'rater#create', :as => 'rate'
   # devise_for :users, :controllers => {:registrations => "users/registrations"}
   resources :filters

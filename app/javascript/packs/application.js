@@ -16,11 +16,9 @@ require("mdDateTimePicker.min")
 require("draggabilly.pkgd.min")
 require ("jquery.raty")
 require ("ratyrate")
-
-
-
-
 require("packs/date-time")
+require("chartkick")
+require("chart.js")
 //= require jquery3
 //= require bootstrap-toggle-buttons
 //= require jquery_ujs

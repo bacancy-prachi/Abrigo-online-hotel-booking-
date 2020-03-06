@@ -12,7 +12,7 @@ end
 @hotel = Hotel.find(params[:hotel_id])
 @rooms = Room.where(hotel_id: params[:hotel_id])
 
-
+hotel.rb
 
 #    before_validation :rooms_are_available
 
@@ -67,3 +67,29 @@ end
 #   end
 # end
 
+
+user show.html.erb
+
+
+<p id="notice"><%= notice %></p>
+
+<%# <p>
+  <strong>Availibility:</strong>
+  <%= @room.availibility %>
+  <table class="table">
+  	<thead class="bg-success">
+  <th >User Emails</th>
+    <th>User Status</th>
+    </thead>
+<% @users.each do |user| %>
+<tr>
+ <td> <%= user.email %></td>
+
+
+ </tr>
+ <% end %>
+</table> 
+
+<%# <% v = UsersRole.where(user_id=user.id).role_id%> 
+<%# <user% w = Role.find(v).name%>
+ 

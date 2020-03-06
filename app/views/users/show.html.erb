@@ -1,24 +1,12 @@
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<%= javascript_include_tag "chartkick" %>
+<h1> Users </h1>
 
-<p id="notice"><%= notice %></p>
+<%= line_chart charts_new_user_path %>
 
-<%# <p>
-  <strong>Availibility:</strong>
-  <%= @room.availibility %>
-  <table class="table">
-  	<thead class="bg-success">
-  <th >User Emails</th>
-    <th>User Status</th>
-    </thead>
-<% @users.each do |user| %>
-<tr>
- <td> <%= user.email %></td>
+<h1> Categories </h1>
 
+<%= bar_chart charts_show_category_path %>
 
- </tr>
- <% end %>
-</table> 
-
-<%# <% v = UsersRole.where(user_id=user.id).role_id%> 
-<%# <user% w = Role.find(v).name%>
- 
-
+<h1>Hotels</h1>
+<%= pie_chart charts_show_hotel_path %>
