@@ -4,7 +4,8 @@ margin: 50px auto;">
   <h5 class="card-header info-color white-text text-center py-4">
     <strong>Filter your hotels</strong>
   </h5>
-<%= form_for @filter, html: {class: "pure-form"} do |f| %>
+<%#= form_for @filter, html: {class: "pure-form"} do |f| %>
+<%= form_for @filter,url: '/filters/show', method: :get do |f| %>
 
 <div class="field">
     <%= f.label :city %><br>

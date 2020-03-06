@@ -13,8 +13,11 @@ class FiltersController < ApplicationController
   end
 
   def show
-
-    @filter = Hotel.joins(:location, rooms: :category).where("locations.city = 'Ahmedabad' AND categories.name = 'single room' AND categories.price >= 500 AND categories.price <= 1500").uniq 
+    
+    @f = params
+  
+    @filter = Hotel.joins(:location, rooms: :category).where('locations.city = ? AND categories.name = ? AND categories.price >= ? AND categories.price <= ?',params[:filter][:city],params[:filter][:category],params[:filter][:min_price],params[:filter][:max_price]).uniq
+    # @filter = Hotel.joins(:location, rooms: :category).where('locations.city = ? AND categories.name = ? AND categories.price >= ? AND categories.price <= ?',@f[:city],@f[:category],@f[:max_price],@f[:min_price]) 
     # l = Hotel.joins(:location).select("locations.*,hotels.*").where("locations.city=?","Ahmedabad")
     # @filter = Filter.find(params[:id])
     # @loc  = Location.find_by("city=?",@filter.city)
