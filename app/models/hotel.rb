@@ -3,6 +3,7 @@
 class Hotel < ApplicationRecord
   # resourcify
   # include Authority::Abilities
+  ratyrate_rateable "name"
   belongs_to :location
   has_many_attached :images
   has_many :rooms, dependent: :destroy
@@ -20,5 +21,4 @@ class Hotel < ApplicationRecord
       all
     end
   end
-  # ratyrate_rateable "name", class_name: 'User'
 end

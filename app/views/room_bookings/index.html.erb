@@ -6,6 +6,7 @@
   <thead class="bg-success">
     <tr>
       <th>Email</th>
+      <th>Hotel</th>
       <th>Check in</th>
       <th>Check out</th>
       <th>Room</th>
@@ -18,6 +19,7 @@
     <% @room_bookings.each do |room_booking| %>
       <tr>
         <td><%= room_booking.booking.user.email %></td>
+        <td><%= room_booking.room.hotel.name %></td>
         <td><%= room_booking.check_in %></td>
         <td><%= room_booking.check_out %></td>
         <td><%= room_booking.room.room_number %></td>

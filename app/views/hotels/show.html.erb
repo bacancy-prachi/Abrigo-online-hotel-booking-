@@ -7,6 +7,11 @@
       
     </tr>
 </thead>
+<tr>
+      <th scope="col">Rating:</th>
+      <th scope="col"><%= rating_for @hotel, 'name', star: 10  %></th>
+      
+</tr>
 	<tr>
 	<td scope="col">Address:</td>
 	<td scope="col"><%= @hotel.address %></td>

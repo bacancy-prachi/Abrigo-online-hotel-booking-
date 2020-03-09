@@ -1,17 +1,35 @@
 <% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
-<h1>You room is booked.</h1>
+<h1 class="text-center text-light bg-success">Invoice</h1>
+<br/>
+<table class="table">
+<thead class="bg-success">
+	<th>Email</th>
+	<th>Check_in</th>
+	<th>Check_out</th>
+	<th>price</th>
+	
+</thead>
+<tr>
+<% total =0%>
+<% @booking_final.each do |r| %>
+<td><%= r.booking.user.email %></td>
+<td><%= r.check_in %></td>
+<td><%= r.check_out %></td>
+<% total =total + r.room.category.price%>
+<td><%= r.room.category.price %></td>
 
-<table>
-	<th>total</th>
-	<tr></tr>
-
+</tr>
+<% end %>
 </table>
 
+<div class="text-light bg-success text-center"><h2>Total: <%= total %></h2></div>
 
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', user_index_path %>
+
+
+<%#= link_to 'Edit', edit_booking_path(@booking_final) %> 
+<%#= link_to 'Back', bookings_path %>
 <% else %>
 <p> Please sign in first! </p>
 <% end %>

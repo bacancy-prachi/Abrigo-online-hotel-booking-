@@ -12,9 +12,14 @@ class BookingsController < ApplicationController
   # GET /bookings/1
   # GET /bookings/1.json
   def show
+  #@room_booking = RoomBooking.new
+  @final = Booking.find(params[:id])
+  @booking_final = RoomBooking.where(booking_id:  @final.id)
   
-  @room_booking = RoomBooking.new
-  #@room_booking = RoomBooking.find(params[:id])
+  # @room_booking = RoomBooking.find params[:id].split(',')
+  # @room_booking = RoomBooking.find(params[:booking_id])
+  # @booking = Booking.find(params[:id])
+  # @room_booking = RoomBooking.find(params[:id])
 
    end
 
@@ -33,9 +38,8 @@ class BookingsController < ApplicationController
   def create
     @user=User.new
     @user=current_user.id
-    # byebug
-    # binding.pry
     @booking = current_user.bookings.build(booking_params)
+    byebug
     # @room_booking = RoomBooking.new(booking_params)
     # @room_booking = params[:booking][:room_bookings_attributes]
     # @booking = Booking.new(booking_params)

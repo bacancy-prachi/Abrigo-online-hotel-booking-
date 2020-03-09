@@ -30,6 +30,7 @@ get '/room_bookings/user_index/:id' => "room_bookings#user_index", as: :user_ind
   resources :locations
   root to: 'users#home'
   get 'users', to: 'users#show'
+  get 'charts', to: 'users#insight'
   devise_for :users
  
 
