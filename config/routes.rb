@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     get "show_category"
     get "show_hotel"
   end 
-  post '/rate' => 'rater#create', :as => 'rate'
   # devise_for :users, :controllers => {:registrations => "users/registrations"}
   resources :filters
 

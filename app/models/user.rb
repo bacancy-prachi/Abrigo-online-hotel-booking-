@@ -23,5 +23,5 @@ class User < ApplicationRecord
     super && !deactivated
       end
 
-   ratyrate_rater
+ 
 end

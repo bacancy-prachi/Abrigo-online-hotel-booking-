@@ -6,6 +6,6 @@ class ChartsController < ApplicationController
         render json: Category.group(:name).sum(:price)
     end
     def show_hotel
-        render json: Room.group(:hotel_id).count
+        render json: Room.joins(:hotel).group("hotels.name").count
     end
 end

@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class Hotel < ApplicationRecord
-  # resourcify
-  # include Authority::Abilities
-  ratyrate_rateable "name"
   belongs_to :location
   has_many_attached :images
   has_many :rooms, dependent: :destroy

@@ -11,8 +11,6 @@ class Room < ApplicationRecord
   end
   # belongs_to :room
   # accepts_nested_attributes_for :room, reject_if: :all_blank, allow_destroy: true
-  scope :available_rooms, lambda {
-                            where(availibility: true)
-                          }
+  scope :available_rooms, lambda {where(availibility: true)}
 
 end

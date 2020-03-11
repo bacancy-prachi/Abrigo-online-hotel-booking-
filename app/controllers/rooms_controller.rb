@@ -24,7 +24,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1/edit
   def edit
-  
+    @room = Room.find(params[:id])
   end
 
   # POST /rooms
@@ -67,7 +67,7 @@ class RoomsController < ApplicationController
   def destroy
     @room.destroy
     respond_to do   |format|
-      format.html { redirect_to rooms_url, notice: 'Room was successfully destroyed.' }
+      format.html { redirect_to hotel_rooms_path(@room.hotel_id)  , notice: 'Room was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -76,7 +76,9 @@ class RoomsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_room
+    #byebug
     @room = Room.find(params[:id])
+
   end
 
   # Only allow a list of trusted parameters through.

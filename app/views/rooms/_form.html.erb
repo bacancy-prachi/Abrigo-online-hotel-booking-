@@ -10,7 +10,7 @@
   </ul>
 </div>
 <% end %>
-<%= form.hidden_field :hotel_id, value: @hotel.id %>
+<%= form.hidden_field :hotel_id, value: @room.hotel_id %>
 <div class="field">
   <%= form.label :room_number %>
   <%= form.text_field :room_number %>

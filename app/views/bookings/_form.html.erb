@@ -1,29 +1,29 @@
 <% if user_signed_in? %>
-<%= form_with(model: [@hotel, @room, @booking], local: true) do |form| %>
-  <% if booking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
-      <ul>
-        <% booking.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <h3 class="text-success">Book rooms</h3>
-  <div id="room_bookings">
-    <%= form.fields_for :room_bookings,remote: true do |room_booking| %>
-      <%= render 'room_booking_fields', :f => form %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association "add bookings", form, :room_bookings, class: "text-success" %>
-    </div>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form_with(model: [@hotel, @room, @booking], local: true) do |form| %>
+      <% if booking.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+          <ul>
+            <% booking.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+      <% end %>
+          </ul>
+        </div>
 <% end %>
+          <h3 class="text-success">Book rooms</h3>
+             <div id="room_bookings">
+                <%= form.fields_for :room_bookings,remote: true do |room_booking| %>
+                <%= render 'room_booking_fields', :f => form %>
+                <% end %>
+                 <div class="links">
+                    <%= link_to_add_association "add bookings", form, :room_bookings, class: "text-success" %>
+                  </div>
+                </div>
+            <div class="actions">
+                <%= form.submit %>
+            </div>
+                    <% end %>
 <% else %>
-<p> Please sign in first! </p>
+  <p> Please sign in first! </p>
 <% end %>
 

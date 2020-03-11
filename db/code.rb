@@ -92,4 +92,8 @@ user show.html.erb
 
 <%# <% v = UsersRole.where(user_id=user.id).role_id%> 
 <%# <user% w = Role.find(v).name%>
+
+
+
+pagination
  
