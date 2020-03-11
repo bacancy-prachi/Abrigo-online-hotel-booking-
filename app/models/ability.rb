@@ -7,9 +7,10 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :hotelowner
-      can :manage, :all
+      can :update, Hotel
+      can :manage, Room
     else user.has_role? :customer
-         can :read, :all
+        can :read, :all
     end
     # Define abilities for the passed in user here. For example:
     #

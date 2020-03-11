@@ -42,6 +42,9 @@
       <!-- <td><%#= rating_for @hotel, 'name', star: 10 %></td> -->
        <td><%= link_to 'Show', hotel %></td>
       <% if current_user && current_user.admin %>
+      
+      <%# <td> <%= link_to 'add categories', categories_path</td> %>
+      
       <td><%= link_to 'Edit', edit_hotel_path(hotel) %></td>
       <td><%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       

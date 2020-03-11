@@ -38,12 +38,17 @@ class BookingsController < ApplicationController
     @user=User.new
     @user=current_user.id
     @booking = current_user.bookings.build(booking_params)
+    
+ 
     # @room_booking = RoomBooking.new(booking_params)
     # @room_booking = params[:booking][:room_bookings_attributes]
     # @booking = Booking.new(booking_params)
     # @booking.user_id = current_user
     
     respond_to do |format|
+      @booking.rooms.each do |room| 
+        room.availability = false 
+      end
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }

@@ -32,6 +32,7 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
+    @room.hotel_id = params[:hotel_id]
     # @hotel = Hotel.find(params[:id])
     # @room.hotel_id = params[:id]
     # @hotel_id = Hotel.find_by_id(session[:hotel])
@@ -86,6 +87,7 @@ class RoomsController < ApplicationController
 
   def room_params
     # byebug
-    params.require(:room).permit(:room_number, :availibility, :category_id, :hotel_id)
+    params.permit(:hotel_id)
+    params.require(:room).permit(:room_number, :availibility, :category_id)
   end
 end
