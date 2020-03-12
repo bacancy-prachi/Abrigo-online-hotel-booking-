@@ -7,6 +7,8 @@ class HotelsController < ApplicationController
   # GET /hotels.json
   def index
     @hotels = Hotel.search(params[:search])
+    @hotels = @hotels.paginate(:per_page => 3, :page => params[:page])
+
     # @hotels = Hotel.ransack(params[:id])
   end
 

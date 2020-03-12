@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'datevalidate' %>
 <% if user_signed_in? %>
     <%= form_with(model: [@hotel, @room, @booking], local: true) do |form| %>
       <% if booking.errors.any? %>
@@ -20,7 +21,7 @@
                   </div>
                 </div>
             <div class="actions">
-                <%= form.submit %>
+                <%= form.submit "Create", id: "submit_btn" %>
             </div>
                     <% end %>
 <% else %>

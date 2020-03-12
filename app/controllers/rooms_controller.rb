@@ -8,6 +8,7 @@ class RoomsController < ApplicationController
   def index
     @hotel = Hotel.find(params[:hotel_id])
     @rooms = Room.where(hotel_id: params[:hotel_id])
+    #@room_bookings = @room_bookings.paginate(:per_page => 3, :page => params[:page])
   end
 
   # GET /rooms/1

@@ -4,7 +4,7 @@
   <div class="bg-light">
   <div class="field">
     <%= f.label :room_id %>
-    <%= f.select :room_id, options_for_select(@spclroom.available_rooms.map{|room| [room.display_room,room.id]}) %>
+    <%= f.select :room_id, options_for_select(@avail),{},class: 'room_avail' %>
   </div>
   <div class="field">
     <%= f.label :check_in %>

@@ -16,6 +16,7 @@ gem 'rails-bootstrap-toggle-buttons'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'rolify'
 gem 'rubocop', require: false
+gem 'will_paginate-bootstrap'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use sqlite3 as the database for Active Record

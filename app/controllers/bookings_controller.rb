@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    
+   
   end
 
   # GET /bookings/1
@@ -24,9 +24,10 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
-    
+    @avail = []
     @booking = Booking.new
     @spclroom = Room.where("hotel_id=?",params[:format])
+    @avail = @spclroom.available_rooms.map{|room| [room.display_room,room.id]}
   end
 
   # GET /bookings/1/edit
@@ -39,19 +40,29 @@ class BookingsController < ApplicationController
     @user=current_user.id
     @booking = current_user.bookings.build(booking_params)
     
- 
+    a = [] 
     # @room_booking = RoomBooking.new(booking_params)
     # @room_booking = params[:booking][:room_bookings_attributes]
     # @booking = Booking.new(booking_params)
     # @booking.user_id = current_user
     
+    @booking.room_bookings.each do |room| 
+      a.push( room.room_id )
+    end
+    @room = Room.where(id: a)
+    
+    @room.each do |room|
+    room.availibility =false
+    room.save
+    end
+    
     respond_to do |format|
-      @booking.rooms.each do |room| 
-        room.availability = false 
-      end
+    
       if @booking.save
+       
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
+
       else
         format.html { render :new }
         format.json { render json: @booking.errors, status: :unprocessable_entity }

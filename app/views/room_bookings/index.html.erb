@@ -34,4 +34,7 @@
   
 <br>
 
-<%= link_to 'New Room Booking', new_booking_path %>
+<%#= link_to 'New Room Booking', new_booking_path %>
+<div>
+<%= will_paginate @room_bookings, renderer: BootstrapPagination::Rails %>
+</div>

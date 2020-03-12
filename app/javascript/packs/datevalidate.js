@@ -1,4 +1,28 @@
 $(document).ready(function () {
+    
+    
+    
+    $("#submit_btn").on("click", function() {
+        if(document.getElementById("check_in").value == null){
+            alert("booking is empty")
+        }
+        var b = document.getElementsByClassName("room_avail");
+        for (i = 0; i < b.length; i++) {
+            for (j = i+1; j < b.length; j++) {
+                if(b[i].value==b[j].value)
+                {
+                    alert("Please select different rooms")
+                    return false    
+                }
+                
+            }
+          }    
+      });
+
+
+
+
+
     $("#check_out").on("change",function () {
         
        
@@ -25,3 +49,6 @@ $(document).ready(function () {
 
     });
 })
+
+
+

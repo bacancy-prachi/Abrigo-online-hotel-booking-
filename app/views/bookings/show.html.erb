@@ -7,8 +7,9 @@
 	<th>Email</th>
 	<th>Check_in</th>
 	<th>Check_out</th>
+	<th>Category</th>
 	<th>Number Of Days</th>
-	<th>price</th>
+	<th>Total</th>
 	
 </thead>
 <tr>
@@ -17,7 +18,8 @@
 <td><%= r.booking.user.email %></td>
 <td><%= r.check_in %></td>
 <td><%= r.check_out %></td>
-<td><%=  (r.check_out.to_date - r.check_in.to_date).to_i %></td>
+<td><%= r.room.category.name%></td>
+<td><%=  (r.check_out.to_date - r.check_in.to_date).to_i %> x <%= r.room.category.price %> </td>
 <% total = total + (r.room.category.price * ((r.check_out.to_date - r.check_in.to_date).to_i))%>
 <td><%= r.room.category.price * ((r.check_out.to_date - r.check_in.to_date).to_i) %></td>
 
@@ -25,7 +27,7 @@
 <% end %>
 </table>
 
-<div class="text-light bg-success text-center"><h2>Total: <%= total %></h2></div>
+<div class="text-light bg-success text-center"><h2>Grand total: <%= total %></h2></div>
 
 
 

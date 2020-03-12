@@ -61,3 +61,6 @@
 <% if current_user && current_user.admin  %>
 <%= link_to 'New Hotel', new_hotel_path %> 
 <% end %>
+<div>
+<%= will_paginate @hotels, renderer: BootstrapPagination::Rails %>
+</div>
