@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>User Bookings</h1>
+<h1 class="text-center text-success">Your Bookings</h1>
 
+<br/>
+<br>
 <table class="table">
   <thead class="bg-success">
     <tr>
@@ -31,7 +33,6 @@
     <% end %>
   </tbody>
 </table>
-  
+  <%= link_to 'New Room Booking', new_booking_path(params[:id]) , class: "btn btn-success" %>
 <br>
 
-<%= link_to 'New Room Booking', new_booking_path(params[:id]) %>

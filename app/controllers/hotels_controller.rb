@@ -7,9 +7,7 @@ class HotelsController < ApplicationController
   # GET /hotels.json
   def index
     @hotels = Hotel.search(params[:search])
-    @hotels = @hotels.paginate(:per_page => 3, :page => params[:page])
-
-    # @hotels = Hotel.ransack(params[:id])
+    @hotels = @hotels.paginate(per_page: 3, page: params[:page])
   end
 
   # GET /hotels/1
@@ -18,7 +16,6 @@ class HotelsController < ApplicationController
 
   # GET /hotels/new
   def new
-    # @hotel.user = current_user
     @hotel = Hotel.new
   end
 
@@ -29,7 +26,6 @@ class HotelsController < ApplicationController
   # POST /hotels.json
   def create
     @hotel = Hotel.new(hotel_params)
-    # @hotel.user = current_user
     @hotel_owner = User.new
     @hotel_owner.email = "#{@hotel.name}@gmail.com"
     @hotel_owner.password = 'hotelowner123'

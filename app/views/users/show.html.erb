@@ -80,7 +80,9 @@ input:checked + .slider:before {
  </tr>
  <% end %>
 </table> 
-
-<%# <% v = UsersRole.where(user_id=user.id).role_id%> 
-<%# <user% w = Role.find(v).name%>
- 
+<div class="digg_pagination">
+<div class="page_info">
+<%= page_entries_info @bookings %>
+</div>
+<%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+</div>

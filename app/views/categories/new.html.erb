@@ -1,5 +1,5 @@
-
-
+<% if user_signed_in? && current_user.admin %>
 <%= render 'form', category: @category %>
 
 <%= link_to 'Back', categories_path %>
+<% end %>

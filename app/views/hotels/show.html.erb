@@ -45,8 +45,12 @@
 <% end %>
 <% if current_user && current_user.admin %>
 <br/>
-<%= link_to 'Edit', edit_hotel_path(@hotel) %> 
+<br/>
+<%= link_to 'Edit', edit_hotel_path(@hotel),class: "btn btn-outline-success my-2 my-sm-0" %> 
 <% end %>
 <br>
 <br/>
-<%= link_to 'Back', hotels_path %>
+<%= link_to 'Back', hotels_path ,class: "btn btn-outline-success my-2 my-sm-0"%>
+
+
+

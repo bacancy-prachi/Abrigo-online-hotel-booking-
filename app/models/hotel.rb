@@ -8,8 +8,7 @@ class Hotel < ApplicationRecord
   def thumbnail(input)
     images[input].variant(resize: '600x300!').processed
   end
-  
- 
+
   belongs_to :location
   def self.search(search)
     if search

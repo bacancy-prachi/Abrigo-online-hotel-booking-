@@ -1,3 +1,4 @@
+<% if current_user && current_user.admin  %>
 <div style="width: 340px;
 margin: 50px auto;">
 <div class="card">
@@ -32,3 +33,6 @@ margin: 50px auto;">
 <% end %>
 <br>
 <p><%= link_to "back", hotels_path %>
+<% else %>
+<h1>you are not admin</h1>
+<% end %>

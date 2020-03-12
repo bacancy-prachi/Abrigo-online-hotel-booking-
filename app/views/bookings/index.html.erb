@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user.admin %>
 <p id="notice"><%= notice %></p>
 
 <h1>Bookings</h1>

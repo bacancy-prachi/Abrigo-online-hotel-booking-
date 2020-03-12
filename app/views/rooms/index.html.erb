@@ -28,3 +28,12 @@
 <br>
 
 <%= link_to 'New Room', new_hotel_room_path %>
+
+
+    <div class="digg_pagination">
+        <div class="page_info">
+            <%= page_entries_info @bookings %>
+        </div>
+            <%= will_paginate @rooms, renderer: BootstrapPagination::Rails %>
+  </div>
+

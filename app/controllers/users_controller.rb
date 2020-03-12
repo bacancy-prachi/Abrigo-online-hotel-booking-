@@ -3,15 +3,6 @@
 class UsersController < ApplicationController
   def show
     @users = User.all
+    @users = @users.paginate(per_page: 5, page: params[:page])
   end
-
-  # def create
-  #   if @user.save
-  #     UserMailer.signup_confirmation(@user).deliver
-  #     redirect_to @user, notice: "signed up successfully."
-
-  # else
-  #   render :new
-  # end
-  # end
 end

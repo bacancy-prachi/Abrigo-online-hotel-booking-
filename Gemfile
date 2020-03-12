@@ -9,9 +9,9 @@ gem 'cancancan'
 gem 'cocoon'
 gem 'devise'
 gem 'hirb'
+gem 'jquery-datetimepicker-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'jquery-datetimepicker-rails'
 gem 'rails-bootstrap-toggle-buttons'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'rolify'
@@ -68,4 +68,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-

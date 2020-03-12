@@ -1,32 +1,23 @@
 <%= javascript_pack_tag 'datevalidate' %>
 <div class="box border">
-<div class="nested-fields">
-  <div class="bg-light">
-  <div class="field">
-    <%= f.label :room_id %>
-    <%= f.select :room_id, options_for_select(@avail),{},class: 'room_avail' %>
+    <div class="nested-fields">
+      <div class="bg-light">
+        <div class="field">
+          <%= f.label :room_id %>
+          <%= f.select :room_id, options_for_select(@avail),{},class: 'room_avail' %>
+        </div>
+      <div class="field">
+        <%= f.label :check_in %>
+        <%= f.datetime_field :check_in ,:id=>'check_in',min: Date.today, max: Date.today+180%>
+      </div>
+      <div class="field">
+        <%= f.label :check_out %>
+        <%= f.datetime_field :check_out,:id=>'check_out',min: Date.today, max: Date.today+180%>
+     </div>
+     <div>
+        <%= link_to_remove_association "remove bookings", f , class: "text-success" %>
+     </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :check_in %>
-    <%#= f.date_select "check_in", :ampm => true, :minute_step => 15 %>
-    <%= f.datetime_field :check_in ,:id=>'check_in',min: Date.today, max: Date.today+180%>
-    <%#= f.date_field :check_in,  :id => 'datetimepicker6' %>
-    <%#= f.time_field :check_in, :id => 'datetimepicker6' %>
-    <%#= render 'time' %>
-  </div>
-  <div class="field">
-    <%= f.label :check_out %>
-    <%#= f.datetime_select :check_out, :ampm => true, :minute_step => 15 %>
-    <%= f.datetime_field :check_out,:id=>'check_out',min: Date.today, max: Date.today+180%>
-    <%#= f.date_field :check_out,  :id => 'datetimepicker7' %>
-     <%#= f.time_field :check_in, :id => 'datetimepicker6' %>
-  </div>
-  <div>
-    <%= link_to_remove_association "remove bookings", f , class: "text-success" %>
-  </div>
-
-</div>
-
-</div>
 </div>
 

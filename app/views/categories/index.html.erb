@@ -1,3 +1,4 @@
+<% if user_signed_in? && current_user.admin %>
 <p id="notice"><%= notice %></p>
 
 <h1>Categories</h1>
@@ -28,4 +29,5 @@
 
 <br>
 
-<%= link_to 'New Category', new_category_path %>
+<%= link_to 'New Category', new_category_path, class: "btn btn-outline-success my-2 my-sm-0" %>
+<% end %>

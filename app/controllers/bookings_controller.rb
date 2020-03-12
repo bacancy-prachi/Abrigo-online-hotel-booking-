@@ -5,29 +5,21 @@ class BookingsController < ApplicationController
 
   # GET /bookings
   # GET /bookings.json
-  def index
-   
-  end
+  def index; end
 
   # GET /bookings/1
   # GET /bookings/1.json
   def show
-  #@room_booking = RoomBooking.new
-  @final = Booking.find(params[:id])
-  @booking_final = RoomBooking.where(booking_id:  @final.id)
-  # @room_booking = RoomBooking.find params[:id].split(',')
-  # @room_booking = RoomBooking.find(params[:booking_id])
-  # @booking = Booking.find(params[:id])
-  # @room_booking = RoomBooking.find(params[:id])
-
-   end
+    @final = Booking.find(params[:id])
+    @booking_final = RoomBooking.where(booking_id: @final.id)
+  end
 
   # GET /bookings/new
   def new
     @avail = []
     @booking = Booking.new
-    @spclroom = Room.where("hotel_id=?",params[:format])
-    @avail = @spclroom.available_rooms.map{|room| [room.display_room,room.id]}
+    @spclroom = Room.where('hotel_id=?', params[:format])
+    @avail = @spclroom.available_rooms.map { |room| [room.display_room, room.id] }
   end
 
   # GET /bookings/1/edit
@@ -36,30 +28,23 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    @user=User.new
-    @user=current_user.id
+    @user = User.new
+    @user = current_user.id
     @booking = current_user.bookings.build(booking_params)
-    
-    a = [] 
-    # @room_booking = RoomBooking.new(booking_params)
-    # @room_booking = params[:booking][:room_bookings_attributes]
-    # @booking = Booking.new(booking_params)
-    # @booking.user_id = current_user
-    
-    @booking.room_bookings.each do |room| 
-      a.push( room.room_id )
+    a = []
+    @booking.room_bookings.each do |room|
+      a.push(room.room_id)
     end
     @room = Room.where(id: a)
-    
+
     @room.each do |room|
-    room.availibility =false
-    room.save
+      room.availibility = false
+      room.save
     end
-    
+
     respond_to do |format|
-    
       if @booking.save
-       
+
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
 

@@ -97,3 +97,34 @@ user show.html.erb
 
 pagination
  
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <% if current_user %>
+<%= link_to 'book now!', user_index_path , class: "btn btn-outline-success my-2 my-sm-0" %>
+<% else %>
+<h3 class="text-danger">You need to login for booking.</h3>
+<% end %>
+      </li>
+      <li class="nav-item col px-md-5">
+      <% if current_user && current_user.admin %>
+<%= link_to 'add room details!',hotel_rooms_path(@hotel) ,  class: "btn btn-outline-success my-2 my-sm-0" %>
+<% end %>
+      </li>
+      <li class="nav-item col px-md-5">
+       <% if current_user && current_user.admin %>
+<%= link_to 'Edit', edit_hotel_path(@hotel), class: "btn btn-outline-success my-2 my-sm-0"  %> 
+<% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Back', hotels_path ,  class: "btn btn-outline-success my-2 my-sm-0" %>
+      </li>
+    </ul>
+  </div>
+</nav>

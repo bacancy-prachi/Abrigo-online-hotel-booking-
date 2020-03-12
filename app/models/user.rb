@@ -11,7 +11,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   after_create :assign_default_role
 
-  def assign_default_role 
+  def assign_default_role
     add_role(:customer) if roles.blank?
   end
 
@@ -22,6 +22,4 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && !deactivated
       end
-
- 
 end

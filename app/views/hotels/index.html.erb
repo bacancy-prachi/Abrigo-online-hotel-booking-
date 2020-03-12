@@ -42,9 +42,6 @@
       <!-- <td><%#= rating_for @hotel, 'name', star: 10 %></td> -->
        <td><%= link_to 'Show', hotel %></td>
       <% if current_user && current_user.admin %>
-      
-      <%# <td> <%= link_to 'add categories', categories_path</td> %>
-      
       <td><%= link_to 'Edit', edit_hotel_path(hotel) %></td>
       <td><%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       
@@ -57,10 +54,17 @@
   </tbody>
 </table>
 
-<br>
+
 <% if current_user && current_user.admin  %>
-<%= link_to 'New Hotel', new_hotel_path %> 
+<%= link_to 'New Hotel', new_hotel_path , class: "btn btn-outline-success my-2 my-sm-0"%> 
 <% end %>
-<div>
-<%= will_paginate @hotels, renderer: BootstrapPagination::Rails %>
-</div>
+<br/>
+<div><br/></div>
+
+    <div class="digg_pagination">
+        <div class="page_info">
+            <%= page_entries_info @bookings %>
+        </div>
+            <%= will_paginate @hotels, renderer: BootstrapPagination::Rails %>
+  </div>
+

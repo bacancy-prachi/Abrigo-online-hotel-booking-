@@ -7,7 +7,7 @@ class RoomBookingsController < ApplicationController
   # GET /room_bookings.json
   def index
     @room_bookings = RoomBooking.all
-    @room_bookings = @room_bookings.paginate(:per_page => 5, :page => params[:page])
+    @room_bookings = @room_bookings.paginate(per_page: 5, page: params[:page])
   end
 
   def user_index
@@ -18,13 +18,11 @@ class RoomBookingsController < ApplicationController
   # GET /room_bookings/1
   # GET /room_bookings/1.json
   def show
-     # @room_booking = RoomBooking.find(params[:id])
    end
 
   # GET /room_bookings/new
   def new
     @room_booking = RoomBooking.new
-    # @cat_name = Category.distinct.pluck(:name)
   end
 
   # GET /room_bookings/1/edit
