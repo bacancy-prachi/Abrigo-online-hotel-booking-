@@ -9,9 +9,9 @@
 </thead>
 <tr>
       <th scope="col">Rating:</th>
-      <%# <th scope="col"><%= rating_for @hotel, 'name', star: 10  %>
-      
-</tr>
+      	<td class="star-rating" data-score= <%= @avg_review %> ></td> 
+		  <em><%#= "#{@reviews.length} reviews"%></em>
+</tr>      
 	<tr>
 	<td scope="col">Address:</td>
 	<td scope="col"><%= @hotel.address %></td>
@@ -40,6 +40,7 @@
 
 <% if current_user %>
 <%= link_to 'book now!', user_index_path , class: "btn btn-outline-success my-2 my-sm-0" %>
+<%= link_to "write reviews", new_hotel_review_path(@hotel),class: "btn btn-success" %>
 <% else %>
 <h3 class="text-danger">You need to login for booking.</h3>
 <% end %>
@@ -50,7 +51,39 @@
 <% end %>
 <br>
 <br/>
+
+
+
+
+	<div class="col-md-7 col-md-offset-1">
+		<% if @reviews.blank? %>
+			<h3>No reviews yet</h3>
+		<% else %>
+		<table class="table">
+			<% @reviews.each do |review| %>
+			
+				<div class="reviews">
+				<div class="star-rating" data-score=<%= review.rating %> ></div> 
+				<p><%= review.comment %></p>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+	</table>
+
+
 <%= link_to 'Back', hotels_path ,class: "btn btn-outline-success my-2 my-sm-0"%>
+
+
+<script>
+	$('.star-rating').raty({
+		path: '/assets/',
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		}			
+	});
+</script>
 
 
 

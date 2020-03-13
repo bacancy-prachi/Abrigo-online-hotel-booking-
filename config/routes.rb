@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :reviews
+  
   namespace :charts do
     get 'new_user'
     get 'show_category'
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :categories
 
   resources :hotels do
+    resources :reviews, except: [:show, :index]
     resources :rooms, shallow: true do
     end
   end

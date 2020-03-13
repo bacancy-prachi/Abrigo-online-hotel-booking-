@@ -10,16 +10,19 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 require("jquery-ui")
-require("moment.min")
-require("mdDateTimePicker.min")
-require("draggabilly.pkgd.min")
-require ("jquery.raty")
-require ("ratyrate")
-require("packs/date-time")
+// require("moment.min")
+// require("mdDateTimePicker.min")
+// require("draggabilly.pkgd.min")
+require ("packs/jquery.raty")
+// require ("ratyrate")
+// require("packs/date-time")
 require("chartkick")
 require("chart.js")
+// require ("bootstrap-sprockets")
+// require ("bootstrap-toggle-buttons")
+//= require_tree .
 //= require jquery3
-//= require bootstrap-toggle-buttons
+ //= require jquery.raty
 //= require jquery_ujs
 //= require cocoon
 // Uncomment to copy all static images under ../images to the output folder and reference

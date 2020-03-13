@@ -1,16 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_hotel
   before_action :authenticate_user!
-  # GET /reviews
-  # GET /reviews.json
-  def index
-    @reviews = Review.all
-  end
-
-  # GET /reviews/1
-  # GET /reviews/1.json
-  def show
-  end
 
   # GET /reviews/new
   def new
@@ -26,10 +17,10 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-
+    @review.hotel_id = @hotel.id
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to @hotel, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -66,6 +57,10 @@ class ReviewsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:id])
+    end
+
+    def set_hotel
+      @hotel = Hotel.find(params[:hotel_id])
     end
 
     # Only allow a list of trusted parameters through.
