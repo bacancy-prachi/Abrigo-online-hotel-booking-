@@ -16,7 +16,8 @@ class HotelsController < ApplicationController
 
   # GET /hotels/new
   def new
-    @hotel = Hotel.new
+    #@hotel = Hotel.new
+    @hotel = current_user.hotels.build
   end
 
   # GET /hotels/1/edit
@@ -25,7 +26,8 @@ class HotelsController < ApplicationController
   # POST /hotels
   # POST /hotels.json
   def create
-    @hotel = Hotel.new(hotel_params)
+    @hotel = current_user.hotels.build(hotel_params)
+   # @hotel = Hotel.new(hotel_params)
     @hotel_owner = User.new
     @hotel_owner.email = "#{@hotel.name}@gmail.com"
     @hotel_owner.password = 'hotelowner123'

@@ -20,13 +20,13 @@
 <td><%= r.room.category.name%></td>
 <td><%=  (r.check_out.to_date - r.check_in.to_date).to_i %> x <%= r.room.category.price %> </td>
 <% total = total + (r.room.category.price * ((r.check_out.to_date - r.check_in.to_date).to_i))%>
-<td><%= r.room.category.price * ((r.check_out.to_date - r.check_in.to_date).to_i) %></td>
-
+<td><%= grand_total = r.room.category.price * ((r.check_out.to_date - r.check_in.to_date).to_i) %></td>
+<% session[:total] = total %>
 </tr>
 <% end %>
 </table>
 
 <div class="text-light bg-success text-center"><h2>Grand total: <%= total %></h2></div>
 
-
+<%= link_to 'payment',new_charge_path, class: "btn-success"%>
 

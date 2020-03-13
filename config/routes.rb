@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :reviews
   namespace :charts do
     get 'new_user'
     get 'show_category'
@@ -27,6 +28,6 @@ Rails.application.routes.draw do
   get 'users', to: 'users#show'
   get 'charts', to: 'users#insight'
   devise_for :users
-
+  resources :charges
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
