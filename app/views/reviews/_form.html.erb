@@ -1,3 +1,13 @@
+<div class="row" 
+         style="background:transparent url('/assets/review.jpg') no-repeat center center /cover">
+<div style="width: 340px;
+margin: 80px auto;">
+<div class="card">
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Sign up</strong>
+  </h5>
+  <div class="card-body px-lg-5 pt-0">
+    <div class="text-center">
 <%= form_with(model: [@hotel,review], local: true) do |form| %>
   <% if review.errors.any? %>
     <div id="error_explanation">

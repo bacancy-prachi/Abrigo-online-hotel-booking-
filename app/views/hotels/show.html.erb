@@ -10,7 +10,6 @@
 <tr>
       <th scope="col">Rating:</th>
       	<td class="star-rating" data-score= <%= @avg_review %> ></td> 
-		  <em><%#= "#{@reviews.length} reviews"%></em>
 </tr>      
 	<tr>
 	<td scope="col">Address:</td>
@@ -55,13 +54,14 @@
 
 
 
-	<div class="col-md-7 col-md-offset-1">
+	<div class="bg-light">
 		<% if @reviews.blank? %>
 			<h3>No reviews yet</h3>
 		<% else %>
 		<table class="table">
+			 <h1 class="text-success"><%= "#{@reviews.length} reviews"%></h1>
 			<% @reviews.each do |review| %>
-			
+				<p class="text-success"><%= review.user.email %></p>
 				<div class="reviews">
 				<div class="star-rating" data-score=<%= review.rating %> ></div> 
 				<p><%= review.comment %></p>
