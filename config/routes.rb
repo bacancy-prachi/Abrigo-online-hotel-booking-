@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   # devise_for :users, :controllers => {:registrations => "users/registrations"}
   resources :filters
-
+  get 'avail_date', to: 'bookings#avail_date'
   resources :room_bookings do
     # get 'user_index', on: :collection, action: :user_index
   end

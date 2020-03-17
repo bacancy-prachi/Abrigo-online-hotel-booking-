@@ -1,12 +1,9 @@
 <%= javascript_pack_tag 'datevalidate' %>
+
 <div class="box border">
     <div class="nested-fields">
       <div class="bg-light">
-        <div class="field">
-          <%= f.label :room_id %>
-          <%= f.select :room_id, options_for_select(@avail),{},class: 'room_avail' %>
-        </div>
-      <div class="field">
+       <div class="field">
         <%= f.label :check_in %>
         <%= f.datetime_field :check_in ,:id=>'check_in',min: Date.today, max: Date.today+180%>
       </div>
@@ -14,6 +11,10 @@
         <%= f.label :check_out %>
         <%= f.datetime_field :check_out,:id=>'check_out',min: Date.today, max: Date.today+180%>
      </div>
+        <div class="field">
+          <%= f.label :room_id %>
+          <%= f.select :room_id, options_for_select(@avail),{},class: 'room_avail' %>
+        </div>
      <div>
         <%= link_to_remove_association "remove bookings", f , class: "text-success" %>
      </div>

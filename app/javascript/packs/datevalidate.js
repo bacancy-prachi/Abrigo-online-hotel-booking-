@@ -19,8 +19,19 @@ $(document).ready(function () {
           }    
       });
 
+// $('#room').on("change",function(){
+//     $.ajax({
+//         type: "GET",
+//         url: "/avail_date",
+//         data: {room_id: $("#room").val()},
+//         ContentType: "application/json; charset=utf-8",
+//         dataType: "json",
+//         success: function(data){
+//             debugger;
 
-
+//         }
+//     })
+// });
 
 
     $("#check_out").on("change",function () {
@@ -31,24 +42,13 @@ $(document).ready(function () {
             alert("date cannot be same");
             document.getElementById("check_out").value="";
         }
-        else
+         else
         {
+            
             var check_in=new Date(document.getElementById("check_in").value);
             var check_out=new Date(document.getElementById("check_out").value);
-            // var Difference_In_Time = check_out.getTime() - check_in.getTime(); 
-            // var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
-
-            // $.ajax({
-            //     type: "Post",
-            //     url: "/bookings",
-            //     data: {Difference_In_Days},
-            //     ContentType: "application/json; charset=utf-8",
-            //     dataType: "json",
-            // });
         }
 
     });
 })
-
-
 

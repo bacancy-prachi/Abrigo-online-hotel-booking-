@@ -12,7 +12,29 @@ class BookingsController < ApplicationController
   def show
     @final = Booking.find(params[:id])
     @booking_final = RoomBooking.where(booking_id: @final.id)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+          render pdf: "Invoice No",
+          page_size: 'A4',
+          template: "bookings/show.html.erb",
+          layout: "pdf.html",
+          orientation: "Landscape",
+          lowquality: true,
+          zoom: 1,
+          dpi: 75
+      end
+    end
   end
+
+  # def avail_date
+  #   byebug
+   
+  #   @room = Room.find(params[:room_id])
+  #   @avail_room = RoomBooking.where(room_id: @room.id)
+  #   render json: { room: @avail_room}
+  # end
 
   # GET /bookings/new
   def new
