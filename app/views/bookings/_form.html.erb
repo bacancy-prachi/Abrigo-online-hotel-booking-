@@ -10,6 +10,7 @@
               </ul>
         </div>
 <% end %>
+<input type="hidden" id="hotel_id" value="<%= params[:format]%>" /> 
               <h3 class="text-success">Book rooms</h3>
                 <div id="room_bookings">
                     <%= form.fields_for :room_bookings,remote: true do |room_booking| %>

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  
+  get 'avail_date', to: 'bookings#avail_date'
   namespace :charts do
     get 'new_user'
     get 'show_category'
@@ -9,11 +9,12 @@ Rails.application.routes.draw do
   end
   # devise_for :users, :controllers => {:registrations => "users/registrations"}
   resources :filters
-  get 'avail_date', to: 'bookings#avail_date'
+  
   resources :room_bookings do
     # get 'user_index', on: :collection, action: :user_index
   end
   get '/room_bookings/user_index/:id' => 'room_bookings#user_index', as: :user_index
+  get 'show_room',to: "bookings#show_room"
   resources :bookings
   # get 'bookings', to: 'bookings#confirm'
   resources :categories

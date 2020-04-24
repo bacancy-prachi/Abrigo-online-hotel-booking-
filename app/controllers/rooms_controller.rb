@@ -13,9 +13,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1
   # GET /rooms/1.json
-  def show
-    @room = Room.find(params[:id])
-  end
+  def show; end
 
   # GET /rooms/new
   def new
@@ -24,9 +22,7 @@ class RoomsController < ApplicationController
   end
 
   # GET /rooms/1/edit
-  def edit
-    @room = Room.find(params[:id])
-  end
+  def edit; end
 
   # POST /rooms
   # POST /rooms.json

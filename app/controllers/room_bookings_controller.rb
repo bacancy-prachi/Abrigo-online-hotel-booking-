@@ -6,8 +6,7 @@ class RoomBookingsController < ApplicationController
   # GET /room_bookings
   # GET /room_bookings.json
   def index
-    @room_bookings = RoomBooking.all
-    @room_bookings = @room_bookings.paginate(per_page: 5, page: params[:page])
+    @room_bookings = RoomBooking.all.paginate(per_page: 5, page: params[:page])
   end
 
   def user_index

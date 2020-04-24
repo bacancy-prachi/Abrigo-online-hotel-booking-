@@ -128,3 +128,12 @@ pagination
     </ul>
   </div>
 </nav>
+
+
+
+
+ #  @room_category=[]
+
+      #  rooms.each do |room|
+      #   @room_category.push(Category.find_by(id: room.category_id))
+      #  end

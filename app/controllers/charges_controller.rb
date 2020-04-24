@@ -8,7 +8,6 @@ class ChargesController < ApplicationController
       # Amount in cents
       @amount = session[:total]
       @amount = @amount.to_i
-        byebug
       customer = Stripe::Customer.create({
         email: params[:stripeEmail],
         source: params[:stripeToken],

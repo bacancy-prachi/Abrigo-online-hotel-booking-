@@ -11,9 +11,19 @@
         <%= f.label :check_out %>
         <%= f.datetime_field :check_out,:id=>'check_out',min: Date.today, max: Date.today+180%>
      </div>
-        <div class="field">
+        <div class="field", id="room_number" >
           <%= f.label :room_id %>
-          <%= f.select :room_id, options_for_select(@avail),{},class: 'room_avail' %>
+          <%= f.select :room_id, options_for_select(@avail),{},class: 'room_avail',id: "room_price" %>
+    <table>
+    <tr><td id="room_category"></td>
+        <td id="room_category_price"></td>
+    </tr>
+    </table>
+            
+          
+        </div>
+        <div id="price">
+          
         </div>
      <div>
         <%= link_to_remove_association "remove bookings", f , class: "text-success" %>

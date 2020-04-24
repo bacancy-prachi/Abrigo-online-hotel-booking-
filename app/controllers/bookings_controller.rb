@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
     @final = Booking.find(params[:id])
     @booking_final = RoomBooking.where(booking_id: @final.id)
 
+    
     respond_to do |format|
       format.html
       format.pdf do
@@ -28,20 +29,29 @@ class BookingsController < ApplicationController
     end
   end
 
-  # def avail_date
-  #   byebug
+
+  def avail_date
+
+  rooms = Room.joins(:room_bookings).where.not("((room_bookings.check_in between ? AND ?) OR (room_bookings.check_out between ? AND ?))", params[:check_in], params[:check_out], params[:check_in], params[:check_out]).where(hotel_id: params[:hotel_id]).uniq
+
+    @room_category=[]
+
+       rooms.each do |room|
+       @room_category.push(Category.find_by(id: room.category_id))
+       end
    
-  #   @room = Room.find(params[:room_id])
-  #   @avail_room = RoomBooking.where(room_id: @room.id)
-  #   render json: { room: @avail_room}
-  # end
+     # render json: {rooms: final}
+  render json: {rooms: rooms, category: @room_category}
+
+
+  end
 
   # GET /bookings/new
   def new
-    @avail = []
     @booking = Booking.new
     @spclroom = Room.where('hotel_id=?', params[:format])
     @avail = @spclroom.available_rooms.map { |room| [room.display_room, room.id] }
+    @hotel_id = params[:format]
   end
 
   # GET /bookings/1/edit
@@ -50,22 +60,25 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    @user = User.new
-    @user = current_user.id
-    @booking = current_user.bookings.build(booking_params)
-    a = []
-    @booking.room_bookings.each do |room|
-      a.push(room.room_id)
-    end
-    @room = Room.where(id: a)
 
-    @room.each do |room|
-      room.availibility = false
-      room.save
-    end
+    @booking = current_user.bookings.build(booking_params)
+  
+
+    room_numbers = @booking.room_bookings.first.room_id
+    room_ids = Room.find_by(room_number: room_numbers).id
+    
+    @booking.room_bookings.first.room_id = room_ids
+     
+    
+  
+    #@rooms = Room.where(id: room_ids).update_all(availibility: false)
+    # @room.each do |room|
+    #   room.availibility = false
+    #   room.save
+    # end
 
     respond_to do |format|
-      if @booking.save
+      if @booking.save!
 
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
@@ -80,6 +93,15 @@ class BookingsController < ApplicationController
   def confirm
     render :confirm
   end
+
+def show_room
+  
+  room= Room.find_by(room_number: params[:room_id])
+   render json: { room_price: room.category }
+  
+end
+
+
 
   # PATCH/PUT /bookings/1
   # PATCH/PUT /bookings/1.json
